@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="description"
+      content="Discover Fitness Free, your go-to for free fitness tips, hacks, and plans for beginners and busy people. Learn how to boost energy, resilience, and mental clarity with simple daily habits."
+    />
+    <meta
+      name="keywords"
+      content="free fitness for everyone, fitness for beginners, fitness tips for busy people, mental clarity, resilience, daily habits, no-equipment workouts, fitness hacks, mental and physical health connection, beginner fitness tips, stress management, emotional well-being, focus and productivity"
+    />
+    <meta
+      property="og:title"
+      content="About Fitness Free - Free Fitness for Everyone"
+    />
+    <meta
+      property="og:description"
+      content="Fitness Free empowers beginners and busy people with free, science-backed fitness hacks and plans to boost energy, resilience, and mental clarity."
+    />
+    <meta property="og:image" content="assets/image/fitness-free-about.jpg" />
+    <meta property="og:url" content="https://yourdomain.com/about.html" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="About Fitness Free - Free Fitness for Everyone"
+    />
+    <meta
+      name="twitter:description"
+      content="Join Fitness Free for free fitness tips and hacks tailored for beginners and busy schedules, enhancing energy and mental clarity."
+    />
+    <meta name="twitter:image" content="assets/image/fitness-free-about.jpg" />
+    <title>About | Fitness Free - Free Fitness for Everyone</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      body {
+        background: #f9f9f9;
+        overflow-x: hidden;
+      }
+
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        background-color: #0077b6;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        color: white;
+        box-shadow: 0 0 12px #00d4ff, 0 0 24px #00d4ff;
+        transition: box-shadow 0.3s ease;
+      }
+
+      .logo {
+        width: 80px;
+      }
+
+      .nav-right a {
+        color: white;
+        text-decoration: none;
+        margin-left: 15px;
+        font-weight: 500;
+        text-shadow: 0 0 8px #ffb703, 0 0 14px #ffb703;
+        font-size: 0.95rem;
+      }
+
+      .hero {
+        position: relative;
+        height: 80vh;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .slider {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      }
+
+      .slide {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        position: absolute;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+      }
+
+      .slide.active {
+        opacity: 1;
+      }
+
+      .overlay {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .typing {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #fff;
+      }
+
+      .btn {
+        margin-top: 1rem;
+        padding: 12px 24px;
+        font-size: 1rem;
+        background: linear-gradient(45deg, #ffb703, #ffd60a);
+        color: #000;
+        border: 3px solid transparent;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.4s ease-in-out;
+        box-shadow: 0 0 10px #ffd60a, 0 0 20px #ffb703;
+        animation: glowBtn 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes glowBtn {
+        from {
+          box-shadow: 0 0 10px #ffd60a;
+        }
+        to {
+          box-shadow: 0 0 20px #ffd60a, 0 0 30px #ffb703;
+        }
+      }
+
+      .glow-button {
+        padding: 1rem 2rem;
+        background: linear-gradient(45deg, #ffcc00, #ffe066, #ffaa00);
+        border: none;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: bold;
+        color: #000;
+        box-shadow: 0 0 8px #ffaa00, 0 0 15px #ffaa00, 0 0 25px #ffaa00;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        animation: glowing 2s infinite;
+      }
+
+      .glow-button:hover {
+        transform: scale(1.07);
+        background: white;
+        color: #0066cc;
+        box-shadow: 0 0 10px #0066cc, 0 0 20px #0066cc;
+      }
+
+      @keyframes glowing {
+        0% {
+          box-shadow: 0 0 5px #ffaa00;
+        }
+        50% {
+          box-shadow: 0 0 20px #ffaa00, 0 0 30px #ffaa00;
+        }
+        100% {
+          box-shadow: 0 0 5px #ffaa00;
+        }
+      }
+
+      .about-section {
+        padding: 60px 20px;
+        background: linear-gradient(120deg, #e0f7fa, #f9f9f9);
+        text-align: center;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .about-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .section-title {
+        font-size: 28px;
+        color: #023e8a;
+        margin-bottom: 30px;
+      }
+
+      .about-content {
+        max-width: 900px;
+        margin: 0 auto;
+        font-size: 1.05rem;
+        line-height: 1.9;
+        color: #333;
+      }
+
+      .about-content p {
+        margin-bottom: 1.2rem;
+      }
+
+      .flip-card-section {
+        padding: 60px 20px;
+        background: linear-gradient(120deg, #f9f9f9, #e0f7fa);
+        text-align: center;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .flip-card-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .card-grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        justify-items: center;
+      }
+
+      .flip-card {
+        background-color: transparent;
+        width: 240px;
+        height: 260px;
+        perspective: 1000px;
+        border-radius: 12px;
+        animation: flicker 3s ease-in-out infinite alternate;
+      }
+
+      @keyframes flicker {
+        0% {
+          box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+        }
+        100% {
+          box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+        }
+      }
+
+      .flip-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+      }
+
+      .flip-card:hover .flip-inner {
+        transform: rotateY(180deg);
+      }
+
+      .flip-front,
+      .flip-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        background-color: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .flip-front {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .flip-front h3 {
+        margin-top: 10px;
+        font-size: 18px;
+        color: #023e8a;
+      }
+
+      .emoji {
+        font-size: 2rem;
+        padding: 15px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #90e0ef, #00b4d8);
+        box-shadow: 0 0 8px rgba(0, 180, 216, 0.8);
+      }
+
+      .date {
+        font-size: 0.8rem;
+        color: gray;
+        margin-top: 5px;
+      }
+
+      .flip-back {
+        transform: rotateY(180deg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.95rem;
+      }
+
+      .cta-section {
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      @media (max-width: 768px) {
+        .typing {
+          font-size: 1.4rem;
+        }
+        .slide {
+          object-position: top;
+        }
+        .about-content {
+          padding: 0 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-left">
+        <img
+          src="assets/image/logo.webp"
+          alt="Fitness Free Logo"
+          class="logo"
+        />
+      </div>
+      <div class="nav-right">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Fit Hacks</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="slider" id="carousel">
+        <img
+          class="slide active"
+          src="assets/image/home1.webp"
+          alt="Fitness Free Slide 1"
+        />
+        <img
+          class="slide"
+          src="assets/image/home2.webp"
+          alt="Fitness Free Slide 2"
+        />
+        <img
+          class="slide"
+          src="assets/image/home5.webp"
+          alt="Fitness Free Slide 3"
+        />
+      </div>
+      <div class="overlay fade-in">
+        <h1><span class="typing" id="typingText"></span></h1>
+        <p>Free Fitness for Everyone—Start Strong, Stay Fit!</p>
+        <a href="blog.html">
+          <button class="btn glow-button">Explore Fitness Journey</button>
+        </a>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <h2 class="section-title">About Fitness Free</h2>
+      <div class="about-content">
+        <p>
+          Welcome to <strong>Fitness Free</strong>, where our mission is simple:
+          <em>Free Fitness for Everyone</em>. We believe fitness isn’t just for
+          gym buffs—it’s for busy people, beginners, and anyone craving a
+          healthier life without breaking the bank. Our goal is to make fitness
+          accessible, fun, and sustainable, no matter your schedule or
+          experience level.
+        </p>
+        <p>
+          At Fitness Free, we’re passionate about empowering you with
+          science-backed hacks, no-equipment workouts, and clever tips to boost
+          energy, resilience, and mental clarity. From desk-bound professionals
+          to students juggling exams, we craft solutions to fit your chaotic
+          life. Our content is designed to bust myths, dodge fitness overwhelm,
+          and spark daily habits that stick.
+        </p>
+        <p>
+          Why choose us? We strip away the jargon and deliver eye-opening
+          strategies—like a 30-second gaze trick to sharpen focus or a barefoot
+          walk to reduce stress. Fitness Free is your go-to for practical, free
+          resources that transform your body and mind, one small step at a time.
+          Join us to start strong and stay fit, no gym required!
+        </p>
+      </div>
+    </section>
+
+    <section class="flip-card-section">
+      <h2 class="section-title">Why Fitness Free Stands Out</h2>
+      <div class="card-grid">
+        <div class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <span class="emoji">🔥</span>
+              <h3>Hidden Hack Vault</h3>
+              <p class="date">Aug 22, 2025</p>
+            </div>
+            <div class="flip-back">
+              <p>
+                Unlock secret fitness hacks, like a 10-second breath-hold to
+                boost resilience, making workouts and daily life feel
+                effortless!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <span class="emoji">🏋️</span>
+              <h3>No-Gym Workouts</h3>
+              <p class="date">Aug 22, 2025</p>
+            </div>
+            <div class="flip-back">
+              <p>
+                Master bodyweight moves like chair squats anywhere, boosting
+                strength and energy for busy beginners without equipment!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <span class="emoji">🧠</span>
+              <h3>Mind-Body Fusion</h3>
+              <p class="date">Aug 22, 2025</p>
+            </div>
+            <div class="flip-back">
+              <p>
+                Blend mental clarity tricks, like nostril breathing, with
+                fitness to amplify focus and reduce stress in minutes!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <span class="emoji">⏰</span>
+              <h3>Busy-Life Fit</h3>
+              <p class="date">Aug 22, 2025</p>
+            </div>
+            <div class="flip-back">
+              <p>
+                Fit 5-minute fitness bursts into your hectic day, designed for
+                beginners to build habits without overwhelm!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2 class="section-title">Ready to Start Strong?</h2>
+      <p>
+        Dive into our free fitness hacks and plans to transform your energy,
+        strength, and mindset. No gym, no excuses—just results!
+      </p>
+      <a href="blog.html">
+        <button class="glow-button">Discover Fitness Journey</button>
+      </a>
+    </section>
+
+    <script>
+      const typingElement = document.getElementById("typingText");
+      const texts = [
+        "Fitness Free for All",
+        "Start Strong Today",
+        "Free Fitness Hacks",
+      ];
+      let index = 0;
+      let charIndex = 0;
+
+      function type() {
+        if (charIndex < texts[index].length) {
+          typingElement.textContent += texts[index].charAt(charIndex);
+          charIndex++;
+          setTimeout(type, 100);
+        } else {
+          setTimeout(() => {
+            typingElement.textContent = "";
+            charIndex = 0;
+            index = (index + 1) % texts.length;
+            type();
+          }, 2000);
+        }
+      }
+      type();
+
+      const slides = document.querySelectorAll(".slide");
+      let currentSlide = 0;
+      function showSlides() {
+        slides.forEach((slide) => slide.classList.remove("active"));
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add("active");
+      }
+      setInterval(showSlides, 4000);
+
+      const sections = document.querySelectorAll(
+        ".about-section, .flip-card-section"
+      );
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      sections.forEach((section) => observer.observe(section));
+    </script>
+  </body>
+</html>

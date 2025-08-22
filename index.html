@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitness Blog | Home</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      .btn.pulse {
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.7);
+        }
+        70% {
+          transform: scale(1.05);
+          box-shadow: 0 0 0 10px rgba(255, 204, 0, 0);
+        }
+        100% {
+          transform: scale(1);
+          box-shadow: 0 0 0 0 rgba(255, 204, 0, 0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="fade-in">
+      <div class="nav-left">
+        <img
+          src="assets/image/logo.webp"
+          alt="Fitness Blog Logo"
+          class="logo"
+        />
+      </div>
+      <div class="nav-right" id="navLinks">
+        <span class="close-icon" onclick="toggleMenu()">✖</span>
+        <a href="index.html">Home</a>
+        <a href="fithacks.html">Fit Hacks</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero fade-in">
+      <div class="slider">
+        <img
+          src="assets/image/home1.webp"
+          alt="Early morning jogging in the park with sunrise background"
+          class="slide active"
+        />
+        <img
+          src="assets/image/home2.webp"
+          alt="Clean home workout space with fitness gear near sunlight"
+          class="slide"
+        />
+        <img
+          src="assets/image/home3.webp"
+          alt="Professional stretching on a balcony to balance health and work"
+          class="slide"
+        />
+        <img
+          src="assets/image/home4.webp"
+          alt="Peaceful walk through nature trail with morning light"
+          class="slide"
+        />
+        <img
+          src="assets/image/home5.webp"
+          alt="Clean empty gym with workout equipment and soft lighting"
+          class="slide"
+        />
+      </div>
+
+      <div class="overlay fade-in">
+        <h1><span class="typing" id="typingText"></span></h1>
+        <p>Fitness made easy, for every body and every goal</p>
+        <a href="blog.html">
+          <button class="btn pulse">Start Move Today</button>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer 
+    <footer class="site-footer fade-in">
+      <div class="footer-content">
+        <p>&copy; 2025 Fitness Free. All rights reserved.</p>
+        <div class="social-icons">
+          <a href="#"><img src="instagram.svg" alt="Instagram Icon" /></a>
+          <a href="#"><img src="linkedin.svg" alt="LinkedIn Icon" /></a>
+          <a href="#"><img src="twitter.svg" alt="Twitter Icon" /></a>
+        </div>
+      </div>
+    </footer>--->
+
+    <script src="assets/js/script.js"></script>
+    <script>
+      // Typing Animation
+      const text = "Welcome to Your Fitness Guide";
+      let index = 0;
+      const speed = 100;
+      function typeEffect() {
+        if (index < text.length) {
+          document.getElementById("typingText").innerHTML += text.charAt(index);
+          index++;
+          setTimeout(typeEffect, speed);
+        }
+      }
+
+      // Scroll Fade Effect
+      const fadeElements = document.querySelectorAll(".fade-in");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      fadeElements.forEach((el) => observer.observe(el));
+
+      // Slider
+      const slides = document.querySelectorAll(".slide");
+      let currentSlide = 0;
+      setInterval(() => {
+        slides[currentSlide].classList.remove("active");
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add("active");
+      }, 5000);
+
+      // Mobile Menu
+      function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("active");
+      }
+
+      window.onload = () => {
+        typeEffect();
+      };
+    </script>
+  </body>
+</html>

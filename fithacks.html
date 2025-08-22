@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitness Blog | Home</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      body {
+        background: #f9f9f9;
+        overflow-x: hidden;
+      }
+
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        background-color: #0077b6;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        color: white;
+        box-shadow: 0 0 12px #00d4ff, 0 0 24px #00d4ff;
+        transition: box-shadow 0.3s ease;
+      }
+
+      .logo {
+        width: 80px;
+      }
+
+      .nav-right a {
+        color: white;
+        text-decoration: none;
+        margin-left: 15px;
+        font-weight: 500;
+        text-shadow: 0 0 8px #ffb703, 0 0 14px #ffb703;
+        font-size: 0.95rem;
+      }
+
+      .hero {
+        position: relative;
+        height: 80vh;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .slider {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      }
+
+      .slide {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        position: absolute;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+      }
+
+      .slide.active {
+        opacity: 1;
+      }
+
+      .overlay {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .typing {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #fff;
+      }
+
+      .btn {
+        margin-top: 1rem;
+        padding: 12px 24px;
+        font-size: 1rem;
+        background: linear-gradient(45deg, #ffb703, #ffd60a);
+        color: #000;
+        border: 3px solid transparent;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.4s ease-in-out;
+        box-shadow: 0 0 10px #ffd60a, 0 0 20px #ffb703;
+        animation: glowBtn 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes glowBtn {
+        from {
+          box-shadow: 0 0 10px #ffd60a;
+        }
+        to {
+          box-shadow: 0 0 20px #ffd60a, 0 0 30px #ffb703;
+        }
+      }
+
+      .flip-card-section {
+        padding: 60px 20px;
+        background: linear-gradient(120deg, #e0f7fa, #f9f9f9);
+        text-align: center;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .flip-card-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .section-title {
+        font-size: 28px;
+        color: #023e8a;
+        margin-bottom: 30px;
+      }
+
+      .card-grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        justify-items: center;
+      }
+
+      .flip-card {
+        background-color: transparent;
+        width: 240px;
+        height: 260px;
+        perspective: 1000px;
+        border-radius: 12px;
+        animation: flicker 3s ease-in-out infinite alternate;
+      }
+
+      @keyframes flicker {
+        0% {
+          box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+        }
+        100% {
+          box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+        }
+      }
+
+      .flip-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+      }
+
+      .flip-card:hover .flip-inner {
+        transform: rotateY(180deg);
+      }
+
+      .flip-front,
+      .flip-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        background-color: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .flip-front {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .flip-front h3 {
+        margin-top: 10px;
+        font-size: 18px;
+        color: #023e8a;
+      }
+
+      .emoji {
+        font-size: 2rem;
+        padding: 15px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #90e0ef, #00b4d8);
+        box-shadow: 0 0 8px rgba(0, 180, 216, 0.8);
+      }
+
+      .date {
+        font-size: 0.8rem;
+        color: gray;
+        margin-top: 5px;
+      }
+
+      .flip-back {
+        transform: rotateY(180deg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 768px) {
+        .typing {
+          font-size: 1.4rem;
+        }
+        .slide {
+          object-position: top;
+        }
+      }
+      /* === Stylish Glowing Button === */
+.glow-button {
+  padding: 1rem 2rem;
+  background: linear-gradient(45deg, #ffcc00, #ffe066, #ffaa00);
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+  box-shadow: 0 0 8px #ffaa00, 0 0 15px #ffaa00, 0 0 25px #ffaa00;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  animation: glowing 2s infinite;
+}
+
+.glow-button:hover {
+  transform: scale(1.07);
+  background: white;
+  color: #0066cc;
+  box-shadow: 0 0 10px #0066cc, 0 0 20px #0066cc;
+}
+
+/* === Glowing Animation === */
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 5px #ffaa00;
+  }
+  50% {
+    box-shadow: 0 0 20px #ffaa00, 0 0 30px #ffaa00;
+  }
+  100% {
+    box-shadow: 0 0 5px #ffaa00;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-left">
+        <img src="assets/image/logo.webp" alt="Logo" class="logo" />
+      </div>
+      <div class="nav-right">
+        <a href="index.html">Home</a>
+        <a href="#fit-hacks">Fit Hacks</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="slider" id="carousel">
+        <img
+          class="slide active"
+          src="assets/image/home1.webp"
+          alt="Fitness Slide 1"
+        />
+        <img
+          class="slide"
+          src="assets/image/home2.webp"
+          alt="Fitness Slide 2"
+        />
+        <img
+          class="slide"
+          src="assets/image/home3.webp"
+          alt="Fitness Slide 3"
+        />
+      </div>
+      <div class="overlay fade-in">
+        <h1><span class="typing" id="typingText"></span></h1>
+        <p>Real habits. Real results. One small step a day</p>
+       <!-- Stylish Glowing Button -->
+        <a href="blog.html">
+<button class="btn glow-button">Hack Your Health</button>
+</a>
+          
+        </button>
+      </div>
+    </section>
+<section id="fit-hacks" class="flip-card-section">
+  <h2 class="section-title">No Tricks. Just Good Health Hacks.</h2>
+  <div class="card-grid">
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <span class="emoji">👁️</span>
+          <h3>Eye-Flicker Boost</h3>
+          <p class="date">Aug 22, 2025</p>
+        </div>
+        <div class="flip-back">
+          <p>
+            Shift your gaze side-to-side for 30 seconds pre-workout. This neuro-hack boosts focus by 15%, sharpening mental clarity instantly!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <span class="emoji">🦶</span>
+          <h3>Barefoot Balance</h3>
+          <p class="date">Aug 22, 2025</p>
+        </div>
+        <div class="flip-back">
+          <p>
+            Walk barefoot on grass for 5 minutes daily. It cuts stress hormones by 18% and strengthens feet for better workouts!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <span class="emoji">🧂</span>
+          <h3>Salt Sip Trick</h3>
+          <p class="date">Aug 22, 2025</p>
+        </div>
+        <div class="flip-back">
+          <p>
+            Add a pinch of sea salt to morning water. It balances electrolytes, boosting hydration and energy for fitness by 20%!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <span class="emoji">🤫</span>
+          <h3>Silent Breath Reset</h3>
+          <p class="date">Aug 22, 2025</p>
+        </div>
+        <div class="flip-back">
+          <p>
+            Hold your breath for 10 seconds after a deep inhale. This resets your nervous system, enhancing resilience in 1 minute!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <span class="emoji">🌬️</span>
+          <h3>Nostril Switch</h3>
+          <p class="date">Aug 22, 2025</p>
+        </div>
+        <div class="flip-back">
+          <p>
+            Alternate nostril breathing for 2 minutes pre-workout. It balances brain hemispheres, boosting mental clarity and performance by 22%!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    <script>
+      const typingElement = document.getElementById("typingText");
+      const texts = [
+        "Welcome to Fitness Hack",
+        "Start Strong",
+        "Stay Consistent",
+      ];
+      let index = 0;
+      let charIndex = 0;
+
+      function type() {
+        if (charIndex < texts[index].length) {
+          typingElement.textContent += texts[index].charAt(charIndex);
+          charIndex++;
+          setTimeout(type, 100);
+        } else {
+          setTimeout(() => {
+            typingElement.textContent = "";
+            charIndex = 0;
+            index = (index + 1) % texts.length;
+            type();
+          }, 2000);
+        }
+      }
+      type();
+
+      const slides = document.querySelectorAll(".slide");
+      let currentSlide = 0;
+      function showSlides() {
+        slides.forEach((slide) => slide.classList.remove("active"));
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add("active");
+      }
+      setInterval(showSlides, 4000);
+
+      const section = document.querySelector(".flip-card-section");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              section.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      observer.observe(section);
+    </script>
+  </body>
+</html>

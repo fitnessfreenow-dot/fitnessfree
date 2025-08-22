@@ -1,0 +1,2155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Stop Guessing Your Diet: Eat Exactly What Your Body Type Needs
+    </title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        font-family: "Segoe UI", sans-serif;
+        height: auto;
+        color: #000;
+        font-size: 1.05rem;
+        line-height: 1.9;
+        background-color: #f9f9f9;
+        scroll-behavior: smooth;
+        overflow-y: auto;
+      }
+
+      /* ===== SCROLLBAR ===== */
+      body::-webkit-scrollbar {
+        width: 10px;
+      }
+      body::-webkit-scrollbar-thumb {
+        background: #0066cc;
+        border-radius: 6px;
+      }
+      body::-webkit-scrollbar-track {
+        background: #e0e0e0;
+      }
+
+      /* ===== SCROLL PROGRESS BAR ===== */
+      .scroll-progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 5px;
+        width: 0;
+        background-color: #ffcc00;
+        z-index: 10000;
+        transition: width 0.3s ease;
+      }
+
+      /* ===== MAIN CONTENT SCROLL AREA ===== */
+      .main-content-scroll {
+        min-height: 100vh;
+        padding-top: 100px;
+        padding-left: 240px;
+        padding-right: 30px;
+        box-sizing: border-box;
+        overflow: visible;
+      }
+
+      /* ===== NAVBAR ===== */
+      nav {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background-color: #0066cc;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.6rem 1.2rem;
+        z-index: 9999;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-left .logo {
+        width: 90px;
+        height: auto;
+      }
+
+      .nav-right {
+        display: flex;
+        gap: 1.2rem;
+        flex-wrap: wrap;
+      }
+
+      .nav-right a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        position: relative;
+        white-space: nowrap;
+      }
+
+      .nav-right a::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        left: 0;
+        bottom: -3px;
+        background: #ffcc00;
+        transition: width 0.3s ease-in-out;
+      }
+
+      .nav-right a:hover::after {
+        width: 100%;
+      }
+
+      .nav-right a:hover {
+        color: #ffcc00;
+      }
+
+      .hamburger,
+      .close-icon {
+        display: none;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: white;
+        z-index: 1100;
+      }
+
+      /* ===== SIDENAV ===== */
+      .side-nav {
+        position: fixed;
+        top: 80px;
+        left: 20px;
+        width: 180px;
+        background: white;
+        border: 1px solid #eee;
+        border-radius: 12px;
+        padding: 1rem;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+        z-index: 100;
+        line-height: 1.8;
+        max-height: calc(100vh - 100px);
+        overflow-y: auto;
+        scrollbar-width: thin;
+      }
+
+      .side-nav h3 {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        color: #0066cc;
+      }
+
+      .side-nav::-webkit-scrollbar {
+        width: 6px;
+      }
+      .side-nav::-webkit-scrollbar-thumb {
+        background: #bbb;
+        border-radius: 6px;
+      }
+      .side-nav::-webkit-scrollbar-thumb:hover {
+        background: #888;
+      }
+      .side-nav ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .side-nav ul li {
+        margin-bottom: 0.5rem;
+      }
+
+      .side-nav ul li a {
+        text-decoration: none;
+        font-size: 0.9rem;
+        color: #333;
+        transition: 0.3s;
+      }
+
+      .side-nav ul li a:hover {
+        color: #0066cc;
+        font-weight: bold;
+      }
+
+      /* ===== CONTAINER ===== */
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem;
+        background: #fff;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+        border-radius: 10px;
+      }
+
+      .container h1 {
+        font-size: 2.4rem;
+        font-weight: 800;
+        line-height: 1.3;
+        margin-bottom: 1.2rem;
+        text-align: center;
+        text-transform: uppercase;
+        word-break: break-word;
+        letter-spacing: 1px;
+        color: #000;
+      }
+
+      .container h2 {
+        font-size: 1.6rem;
+        margin-top: 2rem;
+      }
+
+      .container h3 {
+        font-size: 1.3rem;
+        margin-top: 1.5rem;
+      }
+
+      p {
+        margin-bottom: 1.2rem;
+      }
+
+      ul,
+      ol {
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      /* ===== MOBILE QUICK LINKS ===== */
+      .mobile-quick-horizontal {
+        display: none;
+      }
+
+      /* ===== EXERCISE IMAGE ===== */
+      .exercise-img {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        margin-top: 0.5rem;
+        border-radius: 10px;
+      }
+
+      /* ===== FAQ SECTION ===== */
+      .faq-section {
+        padding: 2rem;
+        background-color: #f9f9f9;
+        border-radius: 12px;
+        margin-top: 2rem;
+      }
+
+      .faq-section h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: #333;
+      }
+
+      .faq-item h3 {
+        font-size: 1.1rem;
+        color: #0066cc;
+        margin-bottom: 0.5rem;
+      }
+
+      .faq-item p {
+        font-size: 0.95rem;
+        color: #444;
+      }
+
+      /* ===== DOWNLOAD BUTTON ===== */
+      .download-section {
+        text-align: center;
+        margin-top: 2rem;
+      }
+
+      .download-btn {
+        background: linear-gradient(135deg, #0066cc, #004f99);
+        color: #fff;
+        padding: 1rem 2rem;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 102, 204, 0.4);
+        transition: all 0.3s ease-in-out;
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .download-btn::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 300%;
+        height: 300%;
+        background: radial-gradient(circle, #ffffff40 10%, transparent 80%);
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      .download-btn:hover::before {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+
+      .download-btn:hover {
+        background: linear-gradient(135deg, #0055aa, #003f7f);
+        box-shadow: 0 0 25px rgba(0, 102, 204, 0.8);
+        transform: scale(1.05);
+      }
+
+      /* ===== FADE-IN ===== */
+      .fade-in-section {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+
+      .fade-in-section.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 768px) {
+        .main-content-scroll {
+          padding: 80px 1rem 1rem 1rem;
+        }
+
+        .container h1 {
+          font-size: 1.6rem;
+        }
+        .nav-right {
+          display: none;
+          flex-direction: column;
+          background: #0066cc;
+          position: absolute;
+          top: 60px;
+          right: 0;
+          padding: 1rem;
+          width: 60%;
+          border-radius: 0 0 0 10px;
+        }
+
+        .nav-right.active {
+          display: flex;
+        }
+
+        .hamburger {
+          display: block;
+          position: absolute;
+          top: 18px;
+          right: 20px;
+          z-index: 1100;
+        }
+
+        .side-nav {
+          display: none;
+        }
+
+        .mobile-quick-horizontal {
+          display: block;
+          overflow-x: auto;
+          white-space: nowrap;
+          padding: 1rem;
+          margin: 1rem 0;
+          background: #fff;
+          border-radius: 8px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+        }
+
+        .mobile-quick-horizontal ul {
+          display: flex;
+          gap: 1.2rem;
+          padding: 0;
+          margin: 0;
+          list-style: none;
+        }
+
+        .mobile-quick-horizontal li {
+          flex-shrink: 0;
+        }
+
+        .mobile-quick-horizontal a {
+          text-decoration: none;
+          font-size: 0.9rem;
+          font-weight: 600;
+          color: #0066cc;
+          background: #e6f2ff;
+          padding: 0.6rem 1rem;
+          border-radius: 6px;
+          transition: 0.3s;
+        }
+
+        .mobile-quick-horizontal a:hover {
+          background: #cce5ff;
+          color: #004080;
+        }
+      }
+
+      /* ===== SCROLL MARGIN FOR ID ANCHORS ===== */
+      [id] {
+        scroll-margin-top: 100px;
+      }
+
+      /* Quiz Section */
+      #quiz {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      #quiz h2 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        color: #333;
+        text-align: center;
+      }
+
+      #quiz p {
+        font-size: 1rem;
+        color: #555;
+        text-align: center;
+        max-width: 600px;
+        margin-bottom: 30px;
+      }
+
+      .quiz-container {
+        width: 100%;
+        max-width: 700px;
+        position: relative;
+      }
+
+      .question-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 30px 25px;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        opacity: 0;
+        transform: translateY(50px);
+        pointer-events: none;
+      }
+
+      .question-card.active {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .question-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 15px;
+        color: #222;
+      }
+
+      .question-card label {
+        display: block;
+        background: #f1f3f5;
+        padding: 12px 15px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+      }
+
+      .question-card label:hover {
+        background: #e0e6ed;
+        border-color: #a3b1c6;
+      }
+
+      .question-card input[type="radio"] {
+        margin-right: 10px;
+      }
+
+      .result {
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        margin-top: 20px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        display: none;
+      }
+
+      .result h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+
+      .result p {
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+
+      #retakeQuiz {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        background-color: #1e90ff;
+        color: white;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+        margin-bottom: 10px;
+      }
+
+      #retakeQuiz:hover {
+        transform: scale(1.05);
+      }
+
+      /* Responsive Quiz */
+      @media (max-width: 768px) {
+        #quiz {
+          padding: 30px 15px;
+        }
+
+        .question-card {
+          padding: 25px 20px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        #quiz h2 {
+          font-size: 1.5rem;
+        }
+
+        .question-card {
+          padding: 20px 15px;
+        }
+
+        .question-card h3 {
+          font-size: 1.1rem;
+        }
+
+        .question-card label {
+          font-size: 0.9rem;
+          padding: 10px 12px;
+        }
+      }
+
+      .question-nav {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+      }
+
+      .question-nav button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        background-color: #1e90ff;
+        color: white;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+
+      .question-nav button:hover {
+        transform: scale(1.05);
+      }
+
+      .table-wrapper {
+        overflow-x: auto;
+      }
+
+      .body-type-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 1rem;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .body-type-table thead {
+        background-color: #1e90ff;
+        color: white;
+      }
+
+      .body-type-table th,
+      .body-type-table td {
+        padding: 14px 18px;
+        text-align: left;
+        word-break: break-word;
+      }
+
+      .body-type-table tbody tr:nth-child(even) {
+        background-color: #f8faff;
+      }
+
+      .body-type-table tbody tr:hover {
+        background-color: #e6f0ff;
+        transition: background-color 0.3s ease;
+      }
+
+      @media (max-width: 600px) {
+        .body-type-table th,
+        .body-type-table td {
+          padding: 10px;
+          font-size: 0.85rem;
+        }
+      }
+
+      .book {
+        position: relative;
+        width: 400px;
+        min-height: 600px;
+        transform-style: preserve-3d;
+        margin: 0 auto;
+      }
+
+      .page {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+        border: 4px solid transparent;
+        border-image: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1) 1;
+        transform-origin: left;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        overflow: hidden;
+        transition: transform 0.8s ease, box-shadow 0.4s ease;
+        display: none;
+      }
+
+      .page.active {
+        display: block;
+        z-index: 2;
+        animation: fadeIn 0.5s ease-in-out;
+      }
+
+      .page.flipping {
+        transform: rotateY(-180deg) scale(0.98);
+        z-index: 1;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .content {
+        padding: 20px;
+        height: 100%;
+        overflow-y: auto;
+        background: linear-gradient(135deg, #ffffff 70%, #f7f7f7 100%);
+      }
+
+      .cover {
+        background: linear-gradient(135deg, #4ecdc4 0%, #45b7d1 100%);
+        color: white;
+        text-align: center;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .cover h1 {
+        font-size: 2.2em;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.35);
+      }
+
+      .cover p {
+        font-size: 1.1em;
+        max-width: 85%;
+        line-height: 1.6;
+        margin-bottom: 10px;
+      }
+
+      .hook-line {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #ffeb3b;
+        margin-top: 10px;
+        text-transform: uppercase;
+      }
+
+      .meal-plan {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+      }
+
+      .meal-plan th,
+      .meal-plan td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+        font-size: 0.95em;
+        word-break: break-word;
+      }
+
+      .meal-plan th {
+        background-color: #f4f4f4;
+        font-weight: bold;
+      }
+
+      .ectomorph th {
+        background-color: #e6f3ff;
+      }
+      .mesomorph th {
+        background-color: #e6ffe6;
+      }
+      .endomorph th {
+        background-color: #ffe6e6;
+      }
+
+      .page-number {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.9em;
+        color: #666;
+        font-weight: bold;
+      }
+
+      .navigation {
+        position: relative;
+        margin-top: 20px;
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .navigation button {
+        padding: 12px 22px;
+        background: linear-gradient(135deg, #007bff, #45b7d1);
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: transform 0.3s ease, background 0.3s ease;
+      }
+
+      .navigation button:hover {
+        transform: scale(1.05);
+        background: linear-gradient(135deg, #45b7d1, #003087);
+      }
+
+      .navigation button:disabled {
+        background: #bbb;
+        cursor: not-allowed;
+        opacity: 0.6;
+      }
+
+      /* Modal for Download Feedback */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 10000;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-content {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        max-width: 400px;
+        width: 90%;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .modal-content p {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+      }
+
+      .modal-content button {
+        padding: 10px 20px;
+        background: #1e90ff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      /* Responsiveness */
+      @media (max-width: 800px) {
+        .book {
+          width: 90%;
+          min-height: 80vh;
+        }
+        .cover h1 {
+          font-size: 1.6em;
+        }
+        .cover p {
+          font-size: 0.95em;
+        }
+        .content h2 {
+          font-size: 1.3em;
+        }
+        .content p {
+          font-size: 0.9em;
+        }
+        .meal-plan th,
+        .meal-plan td {
+          font-size: 0.8em;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .book {
+          width: 95%;
+          min-height: 70vh;
+        }
+        .cover h1 {
+          font-size: 1.3em;
+        }
+        .cover p {
+          font-size: 0.8em;
+        }
+        .hook-line {
+          font-size: 1em;
+        }
+        .navigation button {
+          padding: 10px 16px;
+          font-size: 0.85em;
+        }
+        .meal-plan th,
+        .meal-plan td {
+          font-size: 0.75em;
+        }
+      }
+      .submit-btn {
+        background: linear-gradient(135deg, #0066cc, #004f99);
+        color: #fff;
+        padding: 1rem 2rem;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 102, 204, 0.4);
+        transition: all 0.3s ease-in-out;
+        position: relative;
+        overflow: hidden;
+        display: block;
+        margin: 20px auto 0;
+        border: none;
+        cursor: pointer;
+      }
+
+      .submit-btn::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 300%;
+        height: 300%;
+        background: radial-gradient(circle, #ffffff40 10%, transparent 80%);
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      .submit-btn:hover::before {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+
+      .submit-btn:hover {
+        background: linear-gradient(135deg, #0055aa, #003f7f);
+        box-shadow: 0 0 25px rgba(0, 102, 204, 0.8);
+        transform: scale(1.05);
+      }
+
+      @media (max-width: 480px) {
+        .submit-btn {
+          padding: 0.8rem 1.5rem;
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="scroll-progress-bar" id="progressBar"></div>
+
+    <div class="side-nav">
+      <h3>Quick Sections</h3>
+      <ul>
+        <li><a href="#intro">Intro</a></li>
+        <li><a href="#quiz">Quiz</a></li>
+        <li><a href="#bodytype">Body Type</a></li>
+        <li>
+          <a href="#HowBodyTypeAffectsYourDiet"
+            >How Body Type Affects Your Diet</a
+          >
+        </li>
+        <li>
+          <a href="#BodyTypeDietRecommendations"
+            >Body Type Diet Recommendations</a
+          >
+        </li>
+        <li>
+          <a href="#GeneralMistakes(AllBodyTypes)"
+            >General Mistakes (All Body Types)</a
+          >
+        </li>
+        <li><a href="#plan">Meal Plan</a></li>
+        <li><a href="#faq">FAQs</a></li>
+      </ul>
+    </div>
+
+    <nav class="fade-in">
+      <div class="nav-left">
+        <img
+          src="assets/image/logo.webp"
+          alt="Fitness Blog Logo"
+          class="logo"
+        />
+      </div>
+      <div class="nav-right" id="navLinks">
+        <span class="close-icon" onclick="toggleMenu()">✖</span>
+        <a href="index.html">Home</a>
+        <a href="fithacks.html">Fit Hacks</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </nav>
+
+    <div class="main-content-scroll">
+      <div class="container">
+        <!-- Quick Sections for Mobile -->
+        <div class="mobile-quick-horizontal">
+          <ul>
+            <li><a href="#intro">Intro</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+            <li><a href="#bodytype">Body Type</a></li>
+            <li>
+              <a href="#HowBodyTypeAffectsYourDiet"
+                >How Body Type Affects Your Diet</a
+              >
+            </li>
+            <li>
+              <a href="#BodyTypeDietRecommendations"
+                >Body Type Diet Recommendations</a
+              >
+            </li>
+            <li>
+              <a href="#GeneralMistakes(AllBodyTypes)"
+                >General Mistakes (All Body Types)</a
+              >
+            </li>
+            <li><a href="#plan">Meal Plan</a></li>
+            <li><a href="#faq">FAQs</a></li>
+          </ul>
+        </div>
+
+        <h1>
+          Eating Right for Your Body Shape: The Ultimate Nutrition Guide for
+          Ecto, Meso & Endomorphs
+        </h1>
+
+        <section class="fade-in-section">
+          <h2 id="intro">Introduction</h2>
+          <p>
+            Struggling to eat right for your body shape? You're not alone. Many
+            people follow healthy diets yet still find themselves stuck—unable
+            to lose fat or build muscle effectively.
+          </p>
+          <p>
+            The truth is, nutrition is not one-size-fits-all. Your unique body
+            composition, metabolism, and genetics all play a huge role in how
+            your body responds to food. That's why understanding your body type,
+            also known as your somatotype, is the key to unlocking a
+            personalized nutrition strategy that works.
+          </p>
+          <p>
+            Whether you're lean and lanky, naturally muscular, or tend to store
+            fat easily—this guide will help you finally discover how to eat
+            right for your body shape and meet your health goals.
+          </p>
+        </section>
+
+        <div class="quiz-section fade-in-section" id="quiz">
+          <h2>Take the Quiz: What’s Your Body Type?</h2>
+          <p>
+            Answer these 7 quick questions to find out whether you're an
+            <strong>Ectomorph</strong>, <strong>Mesomorph</strong>, or
+            <strong>Endomorph</strong>.
+          </p>
+          <form id="quizForm" class="quiz-container">
+            <div class="question-card active">
+              <h3>1. How would you describe your body structure?</h3>
+              <label
+                ><input
+                  type="radio"
+                  name="q1"
+                  value="a"
+                  aria-label="Slim, long limbs, small joints"
+                />
+                Slim, long limbs, small joints</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="q1"
+                  value="b"
+                  aria-label="Naturally muscular, broad shoulders"
+                />
+                Naturally muscular, broad shoulders</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="q1"
+                  value="c"
+                  aria-label="Rounder shape, wider hips or waist"
+                />
+                Rounder shape, wider hips or waist</label
+              >
+              <div class="question-nav">
+                <button
+                  type="button"
+                  class="back-btn"
+                  aria-label="Go to previous question"
+                >
+                  Back
+                </button>
+                <button
+                  type="button"
+                  class="next-btn"
+                  aria-label="Go to next question"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+
+            <div class="question-card">
+              <h3>2. How easily do you gain or lose weight?</h3>
+              <label
+                ><input
+                  type="radio"
+                  name="q2"
+                  value="a"
+                  aria-label="I struggle to gain weight or muscle"
+                />
+                I struggle to gain weight or muscle</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="q2"
+                  value="b"
+                  aria-label="I gain muscle easily and stay fit with little effort"
+                />
+                I gain muscle easily and stay fit with little effort</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="q2"
+                  value="c"
+                  aria-label="I gain weight easily and it’s hard to lose fat"
+                />
+                I gain weight easily and it’s hard to lose fat</label
+              >
+              <div class="question-nav">
+                <button
+                  type="button"
+                  class="back-btn"
+                  aria-label="Go to previous question"
+                >
+                  Back
+                </button>
+                <button
+                  type="button"
+                  class="next-btn"
+                  aria-label="Go to next question"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+
+            <div class="question-card">
+              <h3>3. What’s your appetite like?</h3>
+              <label
+                ><input
+                  type="radio"
+                  name="q3"
+                  value="a"
+                  aria-label="I often forget to eat / feel full quickly"
+                />
+                I often forget to eat / feel full quickly</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="q3"
+                  value="b"
+                  aria-label="I eat regularly and maintain weight"
+                />
+                I eat regularly and maintain weight</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="q3"
+                  value="c"
+                  aria-label="I often feel hungry and crave food"
+                />
+                I often feel hungry and crave food</label
+              >
+              <div class="question-nav">
+                <button
+                  type="button"
+                  class="back-btn"
+                  aria-label="Go to previous question"
+                >
+                  Back
+                </button>
+                <button
+                  type="button"
+                  class="next-btn"
+                  aria-label="Go to next question"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+
+            <div class="question-card">
+              <h3>4. What happens when you stop exercising for a while?</h3>
+              <label
+                ><input
+                  type="radio"
+                  name="q4"
+                  value="a"
+                  aria-label="I stay lean but lose muscle tone"
+                />
+                I stay lean but lose muscle tone</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="q4"
+                  value="b"
+                  aria-label="I stay toned with little change"
+                />
+                I stay toned with little change</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="q4"
+                  value="c"
+                  aria-label="I quickly gain fat or feel bloated"
+                />
+                I quickly gain fat or feel bloated</label
+              >
+              <div class="question-nav">
+                <button
+                  type="button"
+                  class="back-btn"
+                  aria-label="Go to previous question"
+                >
+                  Back
+                </button>
+                <button
+                  type="button"
+                  class="next-btn"
+                  aria-label="Go to next question"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+
+            <div class="question-card">
+              <h3>5. What best describes your metabolism?</h3>
+              <label
+                ><input
+                  type="radio"
+                  name="q5"
+                  value="a"
+                  aria-label="Super fast – I burn calories quickly"
+                />
+                Super fast – I burn calories quickly</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="q5"
+                  value="b"
+                  aria-label="Average – I burn and store evenly"
+                />
+                Average – I burn and store evenly</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="q5"
+                  value="c"
+                  aria-label="Slow – I gain fat easily unless I’m very careful"
+                />
+                Slow – I gain fat easily unless I’m very careful</label
+              >
+              <div class="question-nav">
+                <button
+                  type="button"
+                  class="back-btn"
+                  aria-label="Go to previous question"
+                >
+                  Back
+                </button>
+                <button
+                  type="button"
+                  class="next-btn"
+                  aria-label="Go to next question"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+
+            <div class="question-card">
+              <h3>6. What shape are your shoulders and hips?</h3>
+              <label
+                ><input
+                  type="radio"
+                  name="q6"
+                  value="a"
+                  aria-label="Narrow shoulders and hips"
+                />
+                Narrow shoulders and hips</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="q6"
+                  value="b"
+                  aria-label="Broad shoulders, balanced hips"
+                />
+                Broad shoulders, balanced hips</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="q6"
+                  value="c"
+                  aria-label="Wider hips, narrower shoulders"
+                />
+                Wider hips, narrower shoulders</label
+              >
+              <div class="question-nav">
+                <button
+                  type="button"
+                  class="back-btn"
+                  aria-label="Go to previous question"
+                >
+                  Back
+                </button>
+                <button
+                  type="button"
+                  class="next-btn"
+                  aria-label="Go to next question"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+
+            <div class="question-card">
+              <h3>7. How do clothes fit you usually?</h3>
+              <label
+                ><input
+                  type="radio"
+                  name="q7"
+                  value="a"
+                  aria-label="Clothes often feel loose or too big"
+                />
+                Clothes often feel loose or too big</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="q7"
+                  value="b"
+                  aria-label="Most clothes fit me well"
+                />
+                Most clothes fit me well</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="q7"
+                  value="c"
+                  aria-label="Clothes feel tight, especially at the waist"
+                />
+                Clothes feel tight, especially at the waist</label
+              >
+              <div class="question-nav">
+                <button
+                  type="button"
+                  class="back-btn"
+                  aria-label="Go to previous question"
+                >
+                  Back
+                </button>
+                <button
+                  type="button"
+                  class="next-btn"
+                  aria-label="Go to next question"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="submit-btn"
+              onclick="calculateResult()"
+              aria-label="Submit quiz answers"
+            >
+              <button
+                type="button"
+                class="submit-btn"
+                onclick="calculateResult()"
+                role="button"
+                aria-label="Submit quiz to see your body type"
+              >
+                See My Body Type
+              </button>
+            </button>
+          </form>
+          <div class="result" id="resultBox">
+            <button id="retakeQuiz" aria-label="Retake the quiz">
+              Retake Quiz
+            </button>
+            <h2>Your Body Type:</h2>
+            <p id="resultText"></p>
+          </div>
+        </div>
+
+        <section class="fade-in-section" id="bodytype">
+          <h2>Body Type</h2>
+          <img
+            src="assets/image/Ectomorph.webp"
+            alt="Squats Exercise"
+            class="exercise-img"
+          />
+          <h3>🔹 Ectomorph – The Lean Burner</h3>
+          <ul>
+            <li>Slim frame with narrow shoulders, chest, and hips</li>
+            <li>
+              Fast metabolism – burns calories quickly, even without much
+              exercise
+            </li>
+            <li>Struggles to gain weight or build muscle mass</li>
+            <li>Usually has low body fat</li>
+            <li>
+              Often needs higher calorie intake to maintain or gain weight
+            </li>
+            <li>
+              Fitness Goal: Muscle gain with strength training and calorie
+              surplus
+            </li>
+            <li>Common Traits: Think of runners or fashion models</li>
+          </ul>
+
+          <h3>🔹 Mesomorph – The Natural Athlete</h3>
+          <img
+            src="assets/image/Mesomorph.webp"
+            alt="Squats Exercise"
+            class="exercise-img"
+          />
+          <ul>
+            <li>Naturally strong, athletic, and muscular build</li>
+            <li>Well-proportioned body – broad shoulders, narrow waist</li>
+            <li>Gains muscle and strength easily</li>
+            <li>Responds quickly to both weight training and cardio</li>
+            <li>
+              Moderate metabolism – doesn’t gain fat too easily or lose muscle
+              too quickly
+            </li>
+            <li>
+              Fitness Goal: Body recomposition (muscle gain + fat control)
+            </li>
+            <li>Common Traits: Think of sprinters or gymnasts</li>
+          </ul>
+
+          <h3>🔹 Endomorph – The Powerhouse Builder</h3>
+          <img
+            src="assets/image/Endomorph.webp"
+            alt="Squats Exercise"
+            class="exercise-img"
+          />
+          <ul>
+            <li>
+              Rounder, softer body shape with wider hips and thicker limbs
+            </li>
+            <li>Slower metabolism – stores fat more easily</li>
+            <li>Struggles to lose fat but can gain strength quickly</li>
+            <li>
+              Often has strong legs and core, making them powerful in strength
+              training
+            </li>
+            <li>Needs a more disciplined approach to diet and cardio</li>
+            <li>Fitness Goal: Fat loss and lean muscle maintenance</li>
+            <li>Common Traits: Think of powerlifters or football linemen</li>
+          </ul>
+
+          <p>
+            <strong>🧠 Bonus Tip:</strong> Most people are not 100% one type.
+            You may be a blend like Ecto-Meso or Meso-Endo. Taking a body type
+            quiz can help tailor your fitness and diet plan more accurately.
+          </p>
+        </section>
+
+        <section class="fade-in-section" id="HowBodyTypeAffectsYourDiet">
+          <h2>How Body Type Affects Your Diet</h2>
+          <p>
+            Your metabolism, insulin sensitivity, and muscle-to-fat ratio all
+            vary by body type. Here's how it impacts what you should eat:
+          </p>
+          <div class="table-wrapper">
+            <table class="body-type-table">
+              <thead>
+                <tr>
+                  <th>Body Type</th>
+                  <th>Carb Tolerance</th>
+                  <th>Fat Storage</th>
+                  <th>Muscle Gain</th>
+                  <th>Suggested Diet</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Ectomorph</td>
+                  <td>High</td>
+                  <td>Low</td>
+                  <td>Hard</td>
+                  <td>High carb, moderate protein</td>
+                </tr>
+                <tr>
+                  <td>Mesomorph</td>
+                  <td>Moderate</td>
+                  <td>Medium</td>
+                  <td>Easy</td>
+                  <td>Balanced macros</td>
+                </tr>
+                <tr>
+                  <td>Endomorph</td>
+                  <td>Low</td>
+                  <td>High</td>
+                  <td>Medium</td>
+                  <td>Low carb, high protein/fiber</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="fade-in-section" id="BodyTypeDietRecommendations">
+          <h2>Body Type Diet Recommendations</h2>
+          <h3>🥗 Ectomorph Diet (Lean & Fast Metabolism)</h3>
+          <p>
+            <strong>Goals:</strong> Gain healthy weight, maintain energy,
+            support muscle building.
+          </p>
+          <p><strong>What to Eat:</strong></p>
+          <ul>
+            <li>Complex carbs: brown rice, oats, sweet potatoes</li>
+            <li>Lean proteins: chicken, tofu, legumes</li>
+            <li>Healthy fats: avocado, olive oil, nuts</li>
+            <li>Energy-dense foods and frequent meals</li>
+          </ul>
+          <p><strong>Sample Meal Plan:</strong></p>
+          <ul>
+            <li>Breakfast: Peanut butter banana smoothie + oatmeal</li>
+            <li>Snack: Trail mix with nuts and dried fruits</li>
+            <li>Lunch: Grilled chicken sandwich + salad</li>
+            <li>Snack: Yogurt with honey and granola</li>
+            <li>Dinner: Pasta with paneer and sautéed veggies</li>
+          </ul>
+
+          <h3>💪 Mesomorph Diet (Athletic & Balanced Build)</h3>
+          <p>
+            <strong>Goals:</strong> Maintain muscle, manage weight, enhance
+            performance.
+          </p>
+          <p><strong>What to Eat:</strong></p>
+          <ul>
+            <li>Balanced macros: whole grains, lean protein, vegetables</li>
+            <li>Quality protein: eggs, fish, legumes</li>
+            <li>Portion control is key</li>
+          </ul>
+          <p><strong>Sample Meal Plan:</strong></p>
+          <ul>
+            <li>Breakfast: Scrambled eggs, avocado toast, orange</li>
+            <li>Snack: Greek yogurt with almonds</li>
+            <li>Lunch: Chicken and quinoa bowl</li>
+            <li>Snack: Apple with almond butter</li>
+            <li>Dinner: Fish with roasted sweet potatoes and salad</li>
+          </ul>
+
+          <h3>🍩 Endomorph Diet (Curvy & Stores Fat Easily)</h3>
+          <p>
+            <strong>Goals:</strong> Fat loss, insulin balance, muscle
+            definition.
+          </p>
+          <p><strong>What to Eat:</strong></p>
+          <ul>
+            <li>High protein: eggs, tofu, fish, legumes</li>
+            <li>Low-carb veggies: spinach, broccoli, zucchini</li>
+            <li>Healthy fats: olive oil, flaxseed</li>
+            <li>Avoid refined carbs and sugar</li>
+          </ul>
+          <p><strong>Sample Meal Plan:</strong></p>
+          <ul>
+            <li>Breakfast: Veggie omelet with flaxseeds</li>
+            <li>Snack: Boiled eggs + cucumber</li>
+            <li>Lunch: Grilled tofu salad with olive oil</li>
+            <li>Snack: Mixed nuts (small portion)</li>
+            <li>Dinner: Stir-fried vegetables with paneer</li>
+          </ul>
+        </section>
+
+        <section class="fade-in-section" id="GeneralMistakes(AllBodyTypes)">
+          <h2>🚫 Common Mistakes to Avoid</h2>
+          <h3>🟦 Ectomorph (Slim Body, Fast Metabolism)</h3>
+          <p><strong>Common Mistakes:</strong></p>
+          <ul>
+            <li>Skipping meals or eating too little</li>
+            <li>
+              Not tracking calories (thinking they’re eating enough when they’re
+              not)
+            </li>
+            <li>Doing too much cardio, which burns muscle</li>
+            <li>Not eating enough protein for muscle building</li>
+          </ul>
+          <p><strong>Avoid by:</strong></p>
+          <ul>
+            <li>Eating calorie-dense meals every 3–4 hours</li>
+            <li>Prioritizing protein and healthy carbs in every meal</li>
+            <li>
+              Limiting long cardio sessions, focusing more on strength training
+            </li>
+          </ul>
+
+          <h3>🟩 Mesomorph (Athletic Body, Balanced Metabolism)</h3>
+          <p><strong>Common Mistakes:</strong></p>
+          <ul>
+            <li>Overeating because they gain muscle easily (and fat too)</li>
+            <li>Not monitoring carb or fat intake</li>
+            <li>Following a "bulking" plan for too long</li>
+          </ul>
+          <p><strong>Avoid by:</strong></p>
+          <ul>
+            <li>
+              Sticking to a balanced macro diet (carbs + protein + healthy fats)
+            </li>
+            <li>Adjusting food intake based on activity level</li>
+            <li>
+              Including both strength and cardio workouts to stay lean and
+              defined
+            </li>
+          </ul>
+
+          <h3>🟥 Endomorph (Rounded Body, Slower Metabolism)</h3>
+          <p><strong>Common Mistakes:</strong></p>
+          <ul>
+            <li>Eating too many carbs, especially processed ones</li>
+            <li>Skipping meals then overeating later (binge cycle)</li>
+            <li>Avoiding strength training due to fear of “bulking up”</li>
+            <li>Depending too much on cardio for fat loss</li>
+          </ul>
+          <p><strong>Avoid by:</strong></p>
+          <ul>
+            <li>Eating high-protein, high-fiber meals to feel full longer</li>
+            <li>Avoiding sugary snacks and refined carbs</li>
+            <li>Doing strength training to improve metabolism</li>
+            <li>Practicing mindful eating and portion control</li>
+          </ul>
+
+          <p>
+            Eating smart for your body type doesn't have to be boring. You just
+            need the right fuel at the right time — and yes, it can taste
+            amazing too!
+          </p>
+        </section>
+
+        <section class="fade-in-section">
+          <div class="book" id="book">
+            <div id="page1" class="page active">
+              <div class="cover">
+                <h1>Unlock Your Perfect Diet</h1>
+                <p>Discover tailored meal plans to transform your body!</p>
+                <div class="hook-line">
+                  Turn the Page to Start Your Journey!
+                </div>
+                <div class="page-number">Page 1</div>
+              </div>
+            </div>
+
+            <div id="page2" class="page">
+              <div class="content">
+                <h2>🟦 Ectomorph: Build Muscle Fast</h2>
+                <p><strong>Goal:</strong> Muscle gain and sustained energy</p>
+                <p><strong>✅ Calorie-dense, protein-rich meals</strong></p>
+                <table class="meal-plan ectomorph">
+                  <tr>
+                    <th>Meal</th>
+                    <th>What to Eat</th>
+                  </tr>
+                  <tr>
+                    <td>Breakfast</td>
+                    <td>
+                      Peanut butter toast + banana + 2 boiled eggs + full-fat
+                      milk
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Snack</td>
+                    <td>
+                      Protein smoothie with oats, peanut butter, and banana
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Lunch</td>
+                    <td>White rice + rajma + paneer + curd</td>
+                  </tr>
+                  <tr>
+                    <td>Snack</td>
+                    <td>Handful of dry fruits + chikki or energy bar</td>
+                  </tr>
+                  <tr>
+                    <td>Dinner</td>
+                    <td>Roti + dal + aloo gobi + ghee</td>
+                  </tr>
+                </table>
+                <div class="page-number">Page 2</div>
+              </div>
+            </div>
+
+            <div id="page3" class="page">
+              <div class="content">
+                <h2>🟩 Mesomorph: Stay Fit & Lean</h2>
+                <p>
+                  <strong>Goal:</strong> Maintain balance of muscle and leanness
+                </p>
+                <p>
+                  <strong
+                    >✅ Balanced macros: protein, carbs, healthy fats</strong
+                  >
+                </p>
+                <table class="meal-plan mesomorph">
+                  <tr>
+                    <th>Meal</th>
+                    <th>What to Eat</th>
+                  </tr>
+                  <tr>
+                    <td>Breakfast</td>
+                    <td>Vegetable omelet + 1 toast + green tea</td>
+                  </tr>
+                  <tr>
+                    <td>Snack</td>
+                    <td>Greek yogurt + fruit</td>
+                  </tr>
+                  <tr>
+                    <td>Lunch</td>
+                    <td>Brown rice + rajma + mixed sabzi</td>
+                  </tr>
+                  <tr>
+                    <td>Snack</td>
+                    <td>Moong chaat or roasted chickpeas</td>
+                  </tr>
+                  <tr>
+                    <td>Dinner</td>
+                    <td>Grilled paneer + roti + sautéed veggies</td>
+                  </tr>
+                </table>
+                <div class="page-number">Page 3</div>
+              </div>
+            </div>
+
+            <div id="page4" class="page">
+              <div class="content">
+                <h2>🟥 Endomorph: Shed Fat Easily</h2>
+                <p><strong>Goal:</strong> Fat loss, stable energy</p>
+                <p><strong>✅ Low carbs, high protein, high fiber</strong></p>
+                <table class="meal-plan endomorph">
+                  <tr>
+                    <th>Meal</th>
+                    <th>What to Eat</th>
+                  </tr>
+                  <tr>
+                    <td>Breakfast</td>
+                    <td>Besan chilla + mint chutney + black coffee</td>
+                  </tr>
+                  <tr>
+                    <td>Snack</td>
+                    <td>Boiled eggs or sprouts</td>
+                  </tr>
+                  <tr>
+                    <td>Lunch</td>
+                    <td>Roti (1-2) + grilled tofu + spinach sabzi</td>
+                  </tr>
+                  <tr>
+                    <td>Snack</td>
+                    <td>Cucumber sticks + hung curd dip</td>
+                  </tr>
+                  <tr>
+                    <td>Dinner</td>
+                    <td>Light soup + sautéed veggies + small portion of dal</td>
+                  </tr>
+                </table>
+                <div class="page-number">Page 4</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="navigation">
+            <button
+              id="prevBtn"
+              onclick="prevPage()"
+              disabled
+              aria-label="Go to previous page"
+            >
+              Previous
+            </button>
+            <button
+              id="nextBtn"
+              onclick="nextPage()"
+              aria-label="Go to next page"
+            >
+              Next
+            </button>
+          </div>
+        </section>
+
+        <section class="fade-in-section" id="plan">
+          <h2>Weekly Meal Plan</h2>
+          <p>
+            🎁 Want the complete 7-Day Meal Plan for your body type? 📥 Download
+            the Full PDF Guide Now — Meal Plans, Grocery Lists & Prep Tips
+            Included!
+          </p>
+          <div class="download-section">
+            <a
+              href="meal-planner.pdf"
+              download
+              class="download-btn"
+              role="button"
+              aria-label="Download Meal Planner PDF"
+            >
+              📥 Download Meal Planner (PDF)
+            </a>
+          </div>
+          <h2>What You’ll Get in the PDF:</h2>
+          <ul>
+            <li>✔️ 7-Day Meal Plan Table for All Body Types</li>
+            <li>✔️ Morning to Night Real Veg Meals and Non-Veg Meals</li>
+            <li>✔️ Budget-Friendly Grocery List</li>
+            <li>✔️ Portion Tips and Weekly Planner</li>
+          </ul>
+        </section>
+
+        <section class="fade-in-section" id="conclusion">
+          <h2>Conclusion</h2>
+          <p>
+            Eating right for your body shape is not about following a fad diet
+            or copying what works for others — it’s about understanding
+            <strong
+              >your metabolism type, body composition, and fitness goals</strong
+            >. Whether you’re an <strong>ectomorph</strong> needing
+            calorie-dense meals, a <strong>mesomorph</strong> maintaining
+            balanced macros, or an <strong>endomorph</strong> focusing on fat
+            loss and blood sugar control, the right nutrition plan will help you
+            see faster, more sustainable results.
+          </p>
+          <p>
+            By using a
+            <strong>personalized nutrition guide for your body type</strong>,
+            you can make smarter food choices, avoid common mistakes, and
+            finally achieve the transformation you’ve been aiming for. Remember
+            — eat according to your <strong>somatotype diet</strong>, stay
+            consistent, and fuel your body with the right mix of carbs, protein,
+            and healthy fats.
+          </p>
+        </section>
+
+        <section class="faq-section fade-in-section" id="faq">
+          <h2>FAQs – Body Type Nutrition Guide</h2>
+          <div class="faq-item">
+            <h3>1. What is the best diet plan for an endomorph body type?</h3>
+            <p>
+              The best diet for an <strong>endomorph body type</strong> is high
+              in protein and fiber, low in refined carbs, and rich in healthy
+              fats. Focus on foods like eggs, tofu, fish, spinach, broccoli, and
+              olive oil. Endomorphs should avoid sugary snacks and eat balanced
+              meals to keep blood sugar stable.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h3>2. How do I eat right for my body shape?</h3>
+            <p>
+              To eat right for your body shape, first identify whether you’re an
+              <strong>ectomorph, mesomorph, or endomorph</strong> using a body
+              type quiz. Then adjust your macros: ectomorphs need more carbs,
+              mesomorphs benefit from balanced macros, and endomorphs should
+              reduce carbs and increase protein.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h3>3. What is the best mesomorph diet for muscle gain?</h3>
+            <p>
+              A <strong>mesomorph diet for muscle gain</strong> should include
+              lean proteins like chicken, eggs, and legumes, moderate complex
+              carbs like quinoa and sweet potatoes, and healthy fats from nuts
+              and avocado. Portion control is key to building lean muscle
+              without excess fat.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h3>
+              4. Can I use a healthy eating plan based on body type for fat
+              loss?
+            </h3>
+            <p>
+              Yes. A <strong>healthy eating plan based on body type</strong> can
+              help with fat loss by matching your metabolism and carb tolerance.
+              For example, endomorphs may lose fat faster on a low-carb,
+              high-protein plan, while mesomorphs and ectomorphs may need more
+              carbs for energy.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h3>
+              5. What’s the difference between endomorph vs mesomorph diet?
+            </h3>
+            <p>
+              An <strong>endomorph vs mesomorph</strong> diet differs mainly in
+              carb intake. Endomorphs should limit carbs to control fat storage,
+              while mesomorphs can handle moderate carbs thanks to a balanced
+              metabolism. Both benefit from protein-rich meals and
+              nutrient-dense vegetables.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="modal" id="downloadModal">
+      <div class="modal-content">
+        <p>✅ Your PDF download has started!</p>
+        <button onclick="closeModal()" aria-label="Close modal">OK</button>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        /* =========================
+           ELEMENTS
+        ========================== */
+        const form = document.getElementById("quizForm");
+        const questions = Array.from(
+          document.querySelectorAll(".question-card")
+        );
+        const submitBtn = form ? form.querySelector(".submit-btn") : null;
+        const resultBox = document.getElementById("resultBox");
+        const resultText = document.getElementById("resultText");
+        const retakeBtn = document.getElementById("retakeQuiz");
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.getElementById("navLinks");
+        const downloadBtn = document.querySelector(".download-btn");
+        const downloadModal = document.getElementById("downloadModal");
+
+        let currentIndex = 0;
+
+        /* =========================
+           INITIALIZE QUIZ
+        ========================== */
+        questions.forEach((q, i) => {
+          q.classList.remove("active");
+          if (i === 0) q.classList.add("active");
+          const backBtn = q.querySelector(".back-btn");
+          if (backBtn)
+            backBtn.style.display = i === 0 ? "none" : "inline-block";
+          const nextBtn = q.querySelector(".next-btn");
+          if (nextBtn)
+            nextBtn.style.display =
+              i === questions.length - 1 ? "none" : "inline-block";
+        });
+
+        if (submitBtn) submitBtn.style.display = "none";
+        if (retakeBtn) retakeBtn.style.display = "none";
+
+        /* =========================
+           NAVIGATION: NEXT / BACK
+        ========================== */
+        questions.forEach((q, i) => {
+          const nextBtn = q.querySelector(".next-btn");
+          const backBtn = q.querySelector(".back-btn");
+
+          if (nextBtn) {
+            nextBtn.addEventListener("click", () => {
+              if (i < questions.length - 1) {
+                q.classList.remove("active");
+                questions[i + 1].classList.add("active");
+                updateButtons(i + 1);
+                scrollIntoView(questions[i + 1]);
+              }
+            });
+          }
+
+          if (backBtn) {
+            backBtn.addEventListener("click", () => {
+              if (i > 0) {
+                q.classList.remove("active");
+                questions[i - 1].classList.add("active");
+                updateButtons(i - 1);
+                scrollIntoView(questions[i - 1]);
+              }
+            });
+          }
+        });
+
+        function updateButtons(index) {
+          questions.forEach((q, i) => {
+            const backBtn = q.querySelector(".back-btn");
+            const nextBtn = q.querySelector(".next-btn");
+            if (backBtn)
+              backBtn.style.display = i === 0 ? "none" : "inline-block";
+            if (nextBtn)
+              nextBtn.style.display =
+                i === questions.length - 1 ? "none" : "inline-block";
+          });
+          if (submitBtn)
+            submitBtn.style.display =
+              index === questions.length - 1 ? "block" : "none";
+        }
+
+        function scrollIntoView(el) {
+          el.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+
+        /* =========================
+           AUTO ADVANCE ON ANSWER
+        ========================== */
+        questions.forEach((card, idx) => {
+          card.querySelectorAll('input[type="radio"]').forEach((radio) => {
+            radio.addEventListener("change", () => {
+              if (idx < questions.length - 1) {
+                card.classList.remove("active");
+                questions[idx + 1].classList.add("active");
+                updateButtons(idx + 1);
+                scrollIntoView(questions[idx + 1]);
+              } else {
+                if (submitBtn)
+                  submitBtn.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                  });
+              }
+            });
+          });
+        });
+
+        /* =========================
+           CALCULATE RESULT
+        ========================== */
+        function calculateResult() {
+          const scores = { a: 0, b: 0, c: 0 };
+          const formData = new FormData(form);
+          for (const value of formData.values()) {
+            if (scores[value] != null) scores[value] += 1;
+          }
+
+          let resultLabel = "A combination of types – You’re unique!";
+          let theme = { bg: "#F3E8FF", border: "#8A2BE2" };
+
+          if (scores.a > scores.b && scores.a > scores.c) {
+            resultLabel = "Ectomorph – The Lean Burner";
+            theme = { bg: "#EAF4FF", border: "#1E90FF" };
+          } else if (scores.b > scores.a && scores.b > scores.c) {
+            resultLabel = "Mesomorph – The Natural Athlete";
+            theme = { bg: "#E8F8F0", border: "#28A745" };
+          } else if (scores.c > scores.a && scores.c > scores.b) {
+            resultLabel = "Endomorph – The Powerhouse Builder";
+            theme = { bg: "#FFF3E6", border: "#FF8C00" };
+          }
+
+          if (resultText) resultText.textContent = resultLabel;
+          if (resultBox) {
+            resultBox.style.display = "block";
+            resultBox.style.backgroundColor = theme.bg;
+            resultBox.style.borderLeft = `6px solid ${theme.border}`;
+            resultBox.style.opacity = "0";
+            resultBox.style.transform = "translateY(12px)";
+            requestAnimationFrame(() => {
+              resultBox.style.transition =
+                "opacity .45s ease, transform .45s ease";
+              resultBox.style.opacity = "1";
+              resultBox.style.transform = "translateY(0)";
+            });
+            resultBox.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+          if (retakeBtn) retakeBtn.style.display = "inline-block";
+        }
+
+        window.calculateResult = calculateResult;
+
+        /* =========================
+           RETAKE QUIZ
+        ========================== */
+        if (retakeBtn) {
+          retakeBtn.addEventListener("click", () => {
+            questions.forEach((q, i) => {
+              q.classList.remove("active");
+              q.querySelectorAll("input[type='radio']").forEach(
+                (input) => (input.checked = false)
+              );
+            });
+            questions[0].classList.add("active");
+            updateButtons(0);
+            if (resultBox) resultBox.style.display = "none";
+            retakeBtn.style.display = "none";
+            scrollIntoView(questions[0]);
+          });
+        }
+
+        /* =========================
+           HAMBURGER MENU TOGGLE
+        ========================== */
+        function toggleMenu() {
+          if (!navLinks) return;
+          navLinks.classList.toggle("active");
+        }
+        window.toggleMenu = toggleMenu;
+        if (hamburger) hamburger.addEventListener("click", toggleMenu);
+
+        /* =========================
+           DOWNLOAD BUTTON MODAL
+        ========================== */
+        if (downloadBtn) {
+          downloadBtn.addEventListener("click", () => {
+            if (downloadModal) {
+              downloadModal.style.display = "flex";
+            }
+          });
+        }
+
+        function closeModal() {
+          if (downloadModal) {
+            downloadModal.style.display = "none";
+          }
+        }
+        window.closeModal = closeModal;
+
+        /* =========================
+           FADE-IN ON SCROLL
+        ========================== */
+        const fadeEls = document.querySelectorAll(".fade-in-section");
+        if (fadeEls.length) {
+          const io = new IntersectionObserver(
+            (entries, obs) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("is-visible");
+                  obs.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+          );
+          fadeEls.forEach((el) => io.observe(el));
+        }
+
+        /* =========================
+           SCROLL PROGRESS BAR
+        ========================== */
+        const progressBar = document.getElementById("progressBar");
+        function onScrollProgress() {
+          if (!progressBar) return;
+          const doc = document.documentElement;
+          const scrollTop = doc.scrollTop || document.body.scrollTop;
+          const docHeight = doc.scrollHeight - doc.clientHeight;
+          const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+          progressBar.style.width = pct + "%";
+        }
+        window.addEventListener("scroll", onScrollProgress, { passive: true });
+        onScrollProgress();
+      });
+
+      let currentPage = 1;
+      const totalPages = 4;
+
+      function nextPage() {
+        if (currentPage < totalPages) {
+          const current = document.getElementById(`page${currentPage}`);
+          const next = document.getElementById(`page${currentPage + 1}`);
+          current.classList.add("flipping");
+          setTimeout(() => {
+            current.classList.remove("active", "flipping");
+            next.classList.add("active");
+            currentPage++;
+            updateButtons();
+          }, 800);
+        }
+      }
+
+      function prevPage() {
+        if (currentPage > 1) {
+          const current = document.getElementById(`page${currentPage}`);
+          const prev = document.getElementById(`page${currentPage - 1}`);
+          current.classList.add("flipping");
+          setTimeout(() => {
+            current.classList.remove("active", "flipping");
+            prev.classList.add("active");
+            currentPage--;
+            updateButtons();
+          }, 800);
+        }
+      }
+
+      function updateButtons() {
+        document.getElementById("prevBtn").disabled = currentPage === 1;
+        document.getElementById("nextBtn").disabled =
+          currentPage === totalPages;
+      }
+
+      document.addEventListener("DOMContentLoaded", updateButtons);
+    </script>
+  </body>
+</html>
