@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FitnessFree Blog</title>
+    <link>https://fitnessfreenow-dot.github.io/fitnessfree/</link>
+    <description>Free fitness tips, workouts, and nutrition guides for busy people.</description>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 29 Aug 2025 17:35:00 +0530</lastBuildDate>
+    <atom:link href="https://fitnessfreenow-dot.github.io/fitnessfree/rss.xml" rel="self" type="application/rss+xml" />
+
+    <item>
+      <title>Simple Strength Training Routine for Beginners at Home</title>
+      <link>https://fitnessfreenow-dot.github.io/fitnessfree/strengthtrainingblog.html</link>
+      <guid>https://fitnessfreenow-dot.github.io/fitnessfree/strengthtrainingblog.html</guid>
+      <pubDate>Tue, 26 Aug 2025 09:00:00 +0530</pubDate>
+      <description>
+        <![CDATA[Discover a 20-minute strength training routine for beginners at home, no equipment needed. Boost energy, improve posture, and avoid common mistakes with our science-backed guide.]]>
+      </description>
+      <category>Fitness</category>
+      <category>Strength Training</category>
+    </item>
+
+    <item>
+      <title>Why Quality Sleep Is More Powerful Than Any Supplement</title>
+      <link>https://fitnessfreenow-dot.github.io/fitnessfree/sleepblog.html</link>
+      <guid>https://fitnessfreenow-dot.github.io/fitnessfree/sleepblog.html</guid>
+      <pubDate>Fri, 29 Aug 2025 17:30:00 +0530</pubDate>
+      <description>Discover how sleep prevents chronic diseases like heart disease, diabetes, and Alzheimer's with this doctor-backed guide. Get practical sleep hygiene tips, unhidden truths, and a 30-day challenge to boost your health.</description>
+    </item>
+
+    <item>
+      <title>Why Mental Fitness Is as Important as Physical Fitness</title>
+      <link>https://fitnessfreenow-dot.github.io/fitnessfree/mental-fitness.html</link>
+      <guid>https://fitnessfreenow-dot.github.io/fitnessfree/mental-fitness.html</guid>
+      <pubDate>Fri, 29 Aug 2025 14:00:00 +0530</pubDate>
+      <description>Discover why mental fitness is as vital as physical fitness. This guide offers practical tips, science-backed insights, and a 7-week challenge to boost mental clarity, resilience, and emotional well-being at home.</description>
+    </item>
+
+    <item>
+      <title>20-Minute Home Workout for Busy People</title>
+      <link>https://fitnessfreenow-dot.github.io/fitnessfree/20-minute-home-workout.html</link>
+      <guid>https://fitnessfreenow-dot.github.io/fitnessfree/20-minute-home-workout.html</guid>
+      <pubDate>Fri, 29 Aug 2025 15:33:00 +0530</pubDate>
+      <description>Need a quick fitness fix? Try this 20-minute home workout for busy people—no equipment needed! Boost energy, strength, and health with this science-backed routine.</description>
+    </item>
+
+    <item>
+      <title>Stop Guessing Your Diet: Eat Exactly What Your Body Type Needs</title>
+      <link>https://fitnessfreenow-dot.github.io/fitnessfree/bodytypeblog.html</link>
+      <guid>https://fitnessfreenow-dot.github.io/fitnessfree/bodytypeblog.html</guid>
+      <pubDate>Fri, 29 Aug 2025 15:39:00 +0530</pubDate>
+      <description>Discover the ultimate nutrition guide for ectomorph, mesomorph, and endomorph body types. Take our quiz to eat right for your body shape and achieve your health goals!</description>
+    </item>
+  </channel>
+</rss>
