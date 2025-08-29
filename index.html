@@ -6,6 +6,7 @@
     <title>Fitness Blog | Home</title>
     <link rel="stylesheet" href="assets/css/style.css" />
     <style>
+      /* Existing Styles */
       .btn.pulse {
         animation: pulse 2s infinite;
       }
@@ -22,6 +23,64 @@
         100% {
           transform: scale(1);
           box-shadow: 0 0 0 0 rgba(255, 204, 0, 0);
+        }
+      }
+
+      /* Footer Styling */
+      .site-footer {
+        background-color: #ffffff; /* White background */
+        padding: 20px 0;
+        text-align: center;
+        width: 100%;
+        position: relative;
+        bottom: 0;
+        border-top: 1px solid #e0e0e0; /* Subtle top border for separation */
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+
+      .footer-content p {
+        color: #666; /* Light gray for copyright text */
+        font-size: 14px;
+        margin-bottom: 15px;
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 20px; /* Spacing between icons */
+        align-items: center;
+        margin-top: 10px; /* Space above icons */
+      }
+
+      .social-icons a {
+        text-decoration: none;
+        color: #000;
+      }
+
+      .social-icons img {
+        width: 40px; /* Visible size */
+        height: 40px;
+        object-fit: contain; /* Ensures proper scaling */
+        transition: transform 0.2s; /* Smooth hover effect */
+      }
+
+      .social-icons img:hover {
+        transform: scale(1.1); /* Zoom on hover */
+      }
+
+      /* Responsive Design */
+      @media (max-width: 600px) {
+        .social-icons img {
+          width: 30px; /* Smaller on mobile */
+          height: 30px;
+        }
+        .footer-content p {
+          font-size: 12px; /* Adjust text size on mobile */
         }
       }
     </style>
@@ -85,17 +144,35 @@
       </div>
     </section>
 
-    <!-- Footer 
+    <!-- Footer -->
     <footer class="site-footer fade-in">
       <div class="footer-content">
         <p>&copy; 2025 Fitness Free. All rights reserved.</p>
         <div class="social-icons">
-          <a href="#"><img src="instagram.svg" alt="Instagram Icon" /></a>
-          <a href="#"><img src="linkedin.svg" alt="LinkedIn Icon" /></a>
-          <a href="#"><img src="twitter.svg" alt="Twitter Icon" /></a>
+          <a href="https://www.instagram.com/fitnessfree11/" target="_blank">
+            <img src="assets/image/instagram-logo-.webp" alt="Instagram Logo" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/fitness-free-570902380/"
+            target="_blank"
+          >
+            <img src="assets/image/Linkedin-Logo.webp" alt="LinkedIn Logo" />
+          </a>
+          <a href="https://x.com/fitnessfreenow" target="_blank">
+            <img
+              src="assets/image/twitter-new-logo-x.webp"
+              alt="Twitter Logo"
+            />
+          </a>
+          <a
+            href="https://www.facebook.com/profile.php?id=61579865641255"
+            target="_blank"
+          >
+            <img src="assets/image/facebook-new.webp" alt="Facebook Logo" />
+          </a>
         </div>
       </div>
-    </footer>--->
+    </footer>
 
     <script src="assets/js/script.js"></script>
     <script>
