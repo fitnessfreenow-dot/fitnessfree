@@ -4,192 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | Fitness Free</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Segoe+UI&display=swap" rel="stylesheet" />
+ 
   <style>
     /* Critical Inline CSS */
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', 'Roboto', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      overflow-x: hidden;
-    }
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      background-color: #0066cc;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.6rem 1.2rem;
-    }
-    .nav-left .logo {
-      width: 90px;
-      height: auto;
-      transition: opacity 0.2s;
-    }
-    .nav-right {
-      display: flex;
-      gap: 1.2rem;
-    }
-    .nav-right a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    .nav-right a:hover {
-      color: #ffcc00;
-    }
-    .hamburger, .close-icon {
-      display: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      transition: opacity 0.2s;
-    }
-    @media (max-width: 768px) {
-      .nav-right {
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: #0066cc;
-        flex-direction: column;
-        align-items: center;
-        display: none;
-        padding: 1rem 0;
-      }
-      .nav-right.active {
-        display: flex;
-      }
-      .hamburger {
-        display: block;
-      }
-      .close-icon {
-        display: block;
-        position: absolute;
-        right: 20px;
-        top: 10px;
-      }
-      .nav-left .logo {
-        width: 75px;
-      }
-    }
-    .contact-hero {
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    .contact-hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: #0066cc;
-    }
-    .contact-hero p {
-      font-size: 1.2rem;
-    }
-    .contact-container {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      display: grid;
-      gap: 2rem;
-    }
-    .contact-info, .contact-form-section {
-      background: white;
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-    .form-group label {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #004a99;
-    }
-    .form-group input, .form-group select, .form-group textarea {
-      width: 100%;
-      padding: 1rem;
-      border: 2px solid #ddd;
-      border-radius: 8px;
-      font-size: 1rem;
-      transition: border-color 0.3s;
-    }
-    .form-group textarea {
-      height: 200px;
-      resize: vertical;
-    }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-      border-color: #0066cc;
-      outline: none;
-    }
-    .submit-btn {
-      background-color: #0066cc;
-      color: white;
-      padding: 1rem 2rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.2rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .submit-btn:hover {
-      background-color: #004a99;
-    }
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
-    .social-icons img {
-      width: 40px;
-      height: 40px;
-      transition: transform 0.3s;
-    }
-    .social-icons img:hover {
-      transform: scale(1.1);
-    }
-    .popup {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      justify-content: center;
-      align-items: center;
-    }
-    .popup-content {
-      background: white;
-      padding: 2rem;
-      border-radius: 15px;
-      text-align: center;
-      max-width: 400px;
-      width: 90%;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .popup h3 {
-      font-size: 1.5rem;
-      color: #0066cc;
-    }
-    .popup-close {
-      font-size: 1.5rem;
-      top: 0.5rem;
-      right: 0.5rem;
-    }
-    @media (max-width: 600px) {
-      .contact-hero h1 { font-size: 2rem; }
-      .contact-container { gap: 1rem; }
-      .form-group textarea { height: 150px; }
-    }
+   body{margin:0;padding:0;font-family:'Segoe UI',Roboto,sans-serif;background-color:#f9f9f9;color:#333;overflow-x:hidden}.navbar{position:sticky;top:0;z-index:999;background-color:#06c;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:.6rem 1.2rem}.nav-left .logo{width:90px;height:auto;transition:opacity .2s}.nav-right{display:flex;gap:1.2rem}.nav-right a{color:#fff;text-decoration:none;font-weight:500;transition:color .2s}.nav-right a:hover{color:#fc0}.close-icon,.hamburger{display:none;font-size:1.8rem;cursor:pointer;transition:opacity .2s}@media (max-width:768px){.nav-right{position:absolute;top:60px;left:0;width:100%;background-color:#06c;flex-direction:column;align-items:center;display:none;padding:1rem 0}.nav-right.active{display:flex}.hamburger{display:block}.close-icon{display:block;position:absolute;right:20px;top:10px}.nav-left .logo{width:75px}}.contact-hero{padding:2rem 1rem;text-align:center}.contact-hero h1{font-size:2.5rem;margin-bottom:1rem;color:#06c}.contact-hero p{font-size:1.2rem}.contact-container{max-width:900px;margin:2rem auto;padding:0 1rem;display:grid;gap:2rem}.contact-form-section,.contact-info{background:#fff;padding:2rem;border-radius:15px;box-shadow:0 4px 12px rgba(0,0,0,.1);text-align:center}.form-group{margin-bottom:1.5rem}.form-group label{font-size:1.1rem;font-weight:600;color:#004a99}.form-group input,.form-group select,.form-group textarea{width:100%;padding:1rem;border:2px solid #ddd;border-radius:8px;font-size:1rem;transition:border-color .3s}.form-group textarea{height:200px;resize:vertical}.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#06c;outline:0}.submit-btn{background-color:#06c;color:#fff;padding:1rem 2rem;border:none;border-radius:8px;font-size:1.2rem;font-weight:600;cursor:pointer;transition:background .3s}.submit-btn:hover{background-color:#004a99}.social-icons{display:flex;justify-content:center;gap:1.5rem;margin-top:1rem}.social-icons img{width:40px;height:40px;transition:transform .3s}.social-icons img:hover{transform:scale(1.1)}.popup{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,.5);justify-content:center;align-items:center}.popup-content{background:#fff;padding:2rem;border-radius:15px;text-align:center;max-width:400px;width:90%;box-shadow:0 4px 12px rgba(0,0,0,.1)}.popup h3{font-size:1.5rem;color:#06c}.popup-close{font-size:1.5rem;top:.5rem;right:.5rem}@media (max-width:600px){.contact-hero h1{font-size:2rem}.contact-container{gap:1rem}.form-group textarea{height:150px}}
   </style>
 </head>
 <body>
@@ -298,63 +116,32 @@
 
   <script>
     // Performance-Optimized Form Submission
-    let startTime = performance.now();
-    document.addEventListener('DOMContentLoaded', () => {
-      const form = document.getElementById('contactForm');
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const fullName = document.getElementById('fullName').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value.trim();
-        const honeypot = document.getElementById('honeypot').value.trim();
-        const timeTaken = (performance.now() - startTime) / 1000;
-
-        if (honeypot || timeTaken < 2 || !fullName || !email || !subject || !message) {
-          document.getElementById('errorPopup').style.display = 'flex';
-          return;
-        }
-
-        // Professional Card-Like Feedback Format
-        const feedback = `
+   let startTime=performance.now();document.addEventListener("DOMContentLoaded",()=>{const d=document.getElementById("contactForm");d.addEventListener("submit",e=>{e.preventDefault();var e=document.getElementById("fullName").value.trim(),t=document.getElementById("email").value.trim(),n=document.getElementById("subject").value,o=document.getElementById("message").value.trim(),a=document.getElementById("honeypot").value.trim(),m=(performance.now()-startTime)/1e3;!(a||m<2)&&e&&t&&n&&o?(a=`
 +---------------------------------------+
 |       Fitness Free Feedback Card      |
 +---------------------------------------+
 
 [ Sender Information ]
-  Name:  ${fullName}
-  Email: ${email}
+  Name:  ${e}
+  Email: ${t}
 
 [ Feedback Details ]
-  Subject: ${subject}
+  Subject: ${n}
   Message:
-${message.split('\n').map(line => `         ${line}`).join('\n')}
+${o.split("\n").map(e=>"         "+e).join("\n")}
 
 [ Submission Info ]
-  Date:   ${new Date().toLocaleString('en-US', { dateStyle: 'full', timeStyle: 'medium' })}
-  Time:   ${timeTaken.toFixed(2)} seconds
+  Date:   ${(new Date).toLocaleString("en-US",{dateStyle:"full",timeStyle:"medium"})}
+  Time:   ${m.toFixed(2)} seconds
 
 +---------------------------------------+
 | Thank You for Your Feedback!          |
-| We’ll respond soon at ${email}.       |
+| We’ll respond soon at ${t}.       |
 | Contact: fitnessfreenow@gmail.com     |
 | © 2025 Fitness Free                   |
 +---------------------------------------+
-        `.trim();
-
-        const mailtoLink = `mailto:fitnessfreenow@gmail.com?subject=Feedback: ${subject}&body=${encodeURIComponent(feedback)}`;
-        window.location.href = mailtoLink;
-        document.getElementById('thankYouPopup').style.display = 'flex';
-        form.reset();
-        startTime = performance.now();
-      });
-
-      // Close popups on outside click
-      document.addEventListener('click', (e) => {
-        if (e.target.className === 'popup') e.target.style.display = 'none';
-      });
-    });
+        `.trim(),e=`mailto:fitnessfreenow@gmail.com?subject=Feedback: ${n}&body=`+encodeURIComponent(a),window.location.href=e,document.getElementById("thankYouPopup").style.display="flex",d.reset(),startTime=performance.now()):document.getElementById("errorPopup").style.display="flex"}),document.addEventListener("click",e=>{"popup"===e.target.className&&(e.target.style.display="none")})});
   </script>
 </body>
+
 </html>
