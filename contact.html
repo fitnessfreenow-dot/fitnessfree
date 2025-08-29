@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Fitness Free</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Segoe+UI&display=swap" rel="stylesheet" />
+  <style>
+    /* Critical Inline CSS */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', 'Roboto', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      overflow-x: hidden;
+    }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background-color: #0066cc;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 1.2rem;
+    }
+    .nav-left .logo {
+      width: 90px;
+      height: auto;
+      transition: opacity 0.2s;
+    }
+    .nav-right {
+      display: flex;
+      gap: 1.2rem;
+    }
+    .nav-right a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-right a:hover {
+      color: #ffcc00;
+    }
+    .hamburger, .close-icon {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    @media (max-width: 768px) {
+      .nav-right {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #0066cc;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        padding: 1rem 0;
+      }
+      .nav-right.active {
+        display: flex;
+      }
+      .hamburger {
+        display: block;
+      }
+      .close-icon {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 10px;
+      }
+      .nav-left .logo {
+        width: 75px;
+      }
+    }
+    .contact-hero {
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    .contact-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #0066cc;
+    }
+    .contact-hero p {
+      font-size: 1.2rem;
+    }
+    .contact-container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: grid;
+      gap: 2rem;
+    }
+    .contact-info, .contact-form-section {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group label {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #004a99;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+    .form-group textarea {
+      height: 200px;
+      resize: vertical;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: #0066cc;
+      outline: none;
+    }
+    .submit-btn {
+      background-color: #0066cc;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .submit-btn:hover {
+      background-color: #004a99;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .social-icons img {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s;
+    }
+    .social-icons img:hover {
+      transform: scale(1.1);
+    }
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .popup-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .popup h3 {
+      font-size: 1.5rem;
+      color: #0066cc;
+    }
+    .popup-close {
+      font-size: 1.5rem;
+      top: 0.5rem;
+      right: 0.5rem;
+    }
+    @media (max-width: 600px) {
+      .contact-hero h1 { font-size: 2rem; }
+      .contact-container { gap: 1rem; }
+      .form-group textarea { height: 150px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header and Nav -->
+  <header>
+    <nav class="navbar" role="navigation">
+      <div class="nav-left">
+        <img src="assets/image/logo.webp" alt="Fitness Free Logo" class="logo" loading="lazy" width="90" height="90" />
+      </div>
+      <div class="nav-right" id="navLinks">
+        <span class="close-icon" onclick="toggleMenu()">✖</span>
+        <a href="index.html">Home</a>
+        <a href="fithacks.html">Fit Hacks</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </nav>
+  </header>
+
+  <!-- Contact Hero Section -->
+  <section class="contact-hero">
+    <h1>Contact Fitness Free</h1>
+    <p>Get in touch to start your fitness journey!</p>
+  </section>
+
+  <!-- Contact Container -->
+  <div class="contact-container">
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <h2>Contact Us</h2>
+      <p>Email: <a href="mailto:fitnessfreenow@gmail.com" style="color: #0066cc;">fitnessfreenow@gmail.com</a></p>
+      <p>We're here to help with your fitness goals.</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/fitnessfree11/" target="_blank"><img src="assets/image/instagram-logo-.webp" alt="Instagram" loading="lazy" /></a>
+        <a href="https://www.linkedin.com/in/fitness-free-570902380/" target="_blank"><img src="assets/image/Linkedin-Logo.webp" alt="LinkedIn" loading="lazy" /></a>
+        <a href="https://x.com/fitnessfreenow" target="_blank"><img src="assets/image/twitter-new-logo-x.webp" alt="Twitter" loading="lazy" /></a>
+        <a href="https://www.facebook.com/profile.php?id=61579865641255" target="_blank"><img src="assets/image/facebook-new.webp" alt="Facebook" loading="lazy" /></a>
+      </div>
+    </div>
+
+    <!-- Feedback Form -->
+    <div class="contact-form-section">
+      <h2>Send Feedback</h2>
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="fullName">Full Name *</label>
+          <input type="text" id="fullName" name="fullName" required aria-label="Full Name" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required aria-label="Email" />
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject *</label>
+          <select id="subject" name="subject" required aria-label="Subject">
+            <option value="">Select a topic</option>
+            <option value="feedback">General Feedback</option>
+            <option value="workout-tips">Workout Tips</option>
+            <option value="website-issues">Website Issues</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" required aria-label="Message"></textarea>
+        </div>
+        <div class="honeypot">
+          <label for="honeypot">Leave this blank (for bots)</label>
+          <input type="text" id="honeypot" name="honeypot" />
+        </div>
+        <button type="submit" class="submit-btn">Submit Feedback</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Thank You Popup -->
+  <div id="thankYouPopup" class="popup">
+    <div class="popup-content">
+      <h3>Thank You!</h3>
+      <p>Your feedback has been sent. We’ll get back to you soon!</p>
+      <button class="popup-close" onclick="document.getElementById('thankYouPopup').style.display='none'">×</button>
+    </div>
+  </div>
+
+  <!-- Error Popup -->
+  <div id="errorPopup" class="popup">
+    <div class="popup-content">
+      <h3>Error!</h3>
+      <p>Please fill all fields and try again, or avoid submitting too quickly.</p>
+      <button class="popup-close" onclick="document.getElementById('errorPopup').style.display='none'">×</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Fitness Free. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/fitnessfree11/" target="_blank"><img src="assets/image/instagram-logo-.webp" alt="Instagram" loading="lazy" /></a>
+        <a href="https://www.linkedin.com/in/fitness-free-570902380/" target="_blank"><img src="assets/image/Linkedin-Logo.webp" alt="LinkedIn" loading="lazy" /></a>
+        <a href="https://x.com/fitnessfreenow" target="_blank"><img src="assets/image/twitter-new-logo-x.webp" alt="Twitter" loading="lazy" /></a>
+        <a href="https://www.facebook.com/profile.php?id=61579865641255" target="_blank"><img src="assets/image/facebook-new.webp" alt="Facebook" loading="lazy" /></a>
+      </div>
+    </footer>
+
+  <script>
+    // Performance-Optimized Form Submission
+    let startTime = performance.now();
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('contactForm');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const fullName = document.getElementById('fullName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value.trim();
+        const honeypot = document.getElementById('honeypot').value.trim();
+        const timeTaken = (performance.now() - startTime) / 1000;
+
+        if (honeypot || timeTaken < 2 || !fullName || !email || !subject || !message) {
+          document.getElementById('errorPopup').style.display = 'flex';
+          return;
+        }
+
+        // Professional Card-Like Feedback Format
+        const feedback = `
++---------------------------------------+
+|       Fitness Free Feedback Card      |
++---------------------------------------+
+
+[ Sender Information ]
+  Name:  ${fullName}
+  Email: ${email}
+
+[ Feedback Details ]
+  Subject: ${subject}
+  Message:
+${message.split('\n').map(line => `         ${line}`).join('\n')}
+
+[ Submission Info ]
+  Date:   ${new Date().toLocaleString('en-US', { dateStyle: 'full', timeStyle: 'medium' })}
+  Time:   ${timeTaken.toFixed(2)} seconds
+
++---------------------------------------+
+| Thank You for Your Feedback!          |
+| We’ll respond soon at ${email}.       |
+| Contact: fitnessfreenow@gmail.com     |
+| © 2025 Fitness Free                   |
++---------------------------------------+
+        `.trim();
+
+        const mailtoLink = `mailto:fitnessfreenow@gmail.com?subject=Feedback: ${subject}&body=${encodeURIComponent(feedback)}`;
+        window.location.href = mailtoLink;
+        document.getElementById('thankYouPopup').style.display = 'flex';
+        form.reset();
+        startTime = performance.now();
+      });
+
+      // Close popups on outside click
+      document.addEventListener('click', (e) => {
+        if (e.target.className === 'popup') e.target.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>
