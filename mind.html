@@ -44,16 +44,17 @@
 
     <!-- SCRIPT -->
     <script>
-     const blogs=[{title:"Why Mental Fitness Is as Important as Physical Fitness",description:"Your muscles power your body, but your mind drives 80% of your success, says sports psychology. Mental fitness builds resilience and mental clarity to conquer daily chaos. It’s as vital as physical strength for a thriving life",image:"assets/image/mentalfitness.webp",date:"2025-08-21",link:"mentalfitnessblog.html"}];function displayBlogs(e){const n=document.getElementById("blogGrid");n.innerHTML="",e.forEach((e,t)=>{var s=document.createElement("a");s.href=e.link,s.className="blog-card fade-in",s.style.animationDelay=.2*t+"s",s.innerHTML=`
-            <img src="${e.image}" alt="${e.title}" />
-            <div class="blog-content">
-              <h3>${e.title}</h3>
-              <p>${e.description}</p>
-              <button class="read-more">Read More</button>
-            </div>
-          `,n.appendChild(s)})}function sortBlogs(){const s=document.getElementById("sortSelect").value;displayBlogs([...blogs].sort((e,t)=>(e=new Date(e.date),t=new Date(t.date),"newest"===s?t-e:e-t)))}function toggleMenu(){document.getElementById("navLinks").classList.toggle("active")}window.addEventListener("DOMContentLoaded",()=>{displayBlogs(blogs)});
+    const blogs=[{title:"Why Mental Fitness Is as Important as Physical Fitness",description:"Your muscles power your body, but your mind drives 80% of your success, per sports psychology. Mental fitness builds resilience and clarity to conquer daily chaos.",image:"assets/image/mentalfitness.webp",date:"2025-08-21",link:"mentalfitnessblog.html"},{title:"5 Mental Hacks from Elite Athletes to Boost Your Workout Motivation",description:"Discover 5 proven mental hacks from elite athletes to boost workout motivation. Learn visualization, self-talk, mantras, gratitude, and rituals for fitness success.",image:"assets/image/mentalhacks.webp",date:"2025-09-25",link:"mental-hacks-blog.html"}];function displayBlogs(e){let t=document.getElementById("blogGrid");t.innerHTML="",e.forEach((e,s)=>{let a=document.createElement("a");a.href=e.link,a.className="blog-card fade-in",a.style.animationDelay=`${.2*s}s`,a.innerHTML=`
+      <img src="${e.image}" alt="${e.title}" />
+      <div class="blog-content">
+        <h3>${e.title}</h3>
+        <p>${e.description}</p>
+        <a href="${e.link}" class="read-more">Read More</a>
+      </div>
+    `,t.appendChild(a)})}function sortBlogs(){let e=document.getElementById("sortSelect").value,t=[...blogs].sort((t,s)=>"newest"===e?new Date(s.date)-new Date(t.date):new Date(t.date)-new Date(s.date));displayBlogs(t)}function toggleMenu(){document.getElementById("navLinks").classList.toggle("active")}window.addEventListener("DOMContentLoaded",()=>{displayBlogs(blogs)});
     </script>
   </body>
 </html>
+
 
 
