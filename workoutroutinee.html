@@ -43,7 +43,7 @@
     </section>
 
     <!-- SCRIPT -->
-const blogs=[{title:"Daily Workout Routines to Stay Fit at Home – No Equipment Needed",description:"Discover quick, effective home workouts for all fitness levels. Ideal for beginners or busy professionals to stay healthy and energized at home.",image:"assets/image/workoutroutinee.webp",date:"2025-08-21",link:"/fullbodyblog.html"},{title:"Boost Glute Power for Endurance in 2025",description:"Boost endurance and energy with glute training for busy men in 2025. Quick, science-backed workouts from Glute Lab to enhance vitality.",image:"assets/image/glute.webp",date:"2025-09-26",link:"gluteblog.html"}];function displayBlogs(e){let t=document.getElementById("blogGrid");t.innerHTML="",e.forEach((e,n)=>{let o=document.createElement("a");o.href=e.link,o.className="blog-card fade-in",o.style.animationDelay=`${.2*n}s`,o.innerHTML=`
+const blogs=[{title:"Daily Workout Routines to Stay Fit at Home – No Equipment Needed",description:"Discover quick, effective home workouts for all fitness levels. Ideal for beginners or busy professionals to stay healthy and energized at home.",image:"assets/image/workoutroutinee.webp",date:"2025-08-21",link:"fullbodyblog.html"},{title:"Boost Glute Power for Endurance in 2025",description:"Boost endurance and energy with glute training for busy men in 2025. Quick, science-backed workouts from Glute Lab to enhance vitality.",image:"assets/image/glute.webp",date:"2025-09-26",link:"gluteblog.html"}];function displayBlogs(e){let t=document.getElementById("blogGrid");t.innerHTML="",e.forEach((e,n)=>{let o=document.createElement("a");o.href=e.link,o.className="blog-card fade-in",o.style.animationDelay=`${.2*n}s`,o.innerHTML=`
       <img src="${e.image}" alt="${e.title}" />
       <div class="blog-content">
         <h3>${e.title}</h3>
@@ -53,6 +53,7 @@ const blogs=[{title:"Daily Workout Routines to Stay Fit at Home – No Equipment
     `,t.appendChild(o)})}function sortBlogs(){let e=document.getElementById("sortSelect").value,t=[...blogs].sort((t,n)=>"newest"===e?new Date(n.date)-new Date(t.date):new Date(t.date)-new Date(n.date));displayBlogs(t)}function toggleMenu(){document.getElementById("navLinks").classList.toggle("active")}window.addEventListener("DOMContentLoaded",()=>{displayBlogs(blogs)});
   </body>
 </html>
+
 
 
 
