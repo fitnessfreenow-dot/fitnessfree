@@ -44,17 +44,18 @@
 
     <!-- SCRIPT -->
     <script>
- const blogs=[{title:"Sleep: The Ultimate Disease-Prevention Tool for Mind and Body",description:"Unlock the secret to a healthier you: quality sleep can slash heart disease, supercharge immunity, and spark vibrant energy in just one powerful nightly habit!",image:"assets/image/sleep.webp",date:"2025-08-21",link:"sleepblog.html"}];function displayBlogs(e){const a=document.getElementById("blogGrid");a.innerHTML="",e.forEach((e,t)=>{var n=document.createElement("a");n.href=e.link,n.className="blog-card fade-in",n.style.animationDelay=.2*t+"s",n.innerHTML=`
-            <img src="${e.image}" alt="${e.title}" />
-            <div class="blog-content">
-              <h3>${e.title}</h3>
-              <p>${e.description}</p>
-              <button class="read-more">Read More</button>
-            </div>
-          `,a.appendChild(n)})}function sortBlogs(){const n=document.getElementById("sortSelect").value;displayBlogs([...blogs].sort((e,t)=>(e=new Date(e.date),t=new Date(t.date),"newest"===n?t-e:e-t)))}function toggleMenu(){document.getElementById("navLinks").classList.toggle("active")}window.addEventListener("DOMContentLoaded",()=>{displayBlogs(blogs)});
+const blogs=[{title:"Sleep: The Ultimate Disease-Prevention Tool for Mind and Body",description:"Unlock the secret to a healthier you: quality sleep slashes heart disease, boosts immunity, and sparks vibrant energy with one nightly habit!",image:"assets/image/sleep.webp",date:"2025-08-21",link:"/sleepblog.html"},{title:"10 Gut Health Hacks to Boost Immunity in 2025",description:"Discover 10 science-backed gut health hacks to boost immunity in 2025, inspired by How Not to Die. Simple tips for busy lives to prevent disease.",image:"assets/image/gut.webp",date:"2025-09-26",link:"gut-health-blog.html"}];function displayBlogs(e){let t=document.getElementById("blogGrid");t.innerHTML="",e.forEach((e,i)=>{let s=document.createElement("a");s.href=e.link,s.className="blog-card fade-in",s.style.animationDelay=`${.2*i}s`,s.innerHTML=`
+      <img src="${e.image}" alt="${e.title}" />
+      <div class="blog-content">
+        <h3>${e.title}</h3>
+        <p>${e.description}</p>
+        <a href="${e.link}" class="read-more">Read More</a>
+      </div>
+    `,t.appendChild(s)})}function sortBlogs(){let e=document.getElementById("sortSelect").value,t=[...blogs].sort((t,i)=>"newest"===e?new Date(i.date)-new Date(t.date):new Date(t.date)-new Date(i.date));displayBlogs(t)}function toggleMenu(){document.getElementById("navLinks").classList.toggle("active")}window.addEventListener("DOMContentLoaded",()=>{displayBlogs(blogs)});
     </script>
   </body>
 </html>
+
 
 
 
