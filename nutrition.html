@@ -44,16 +44,17 @@
 
     <!-- SCRIPT -->
     <script>
-      const blogs=[{title:"Eating Right for Your Body Shape: The Ultimate Nutrition Guide for Ecto, Meso & Endomorphs",description:"Struggling to lose fat or build muscle despite a healthy diet? Your unique body type—lean, athletic, or curvy—holds the key to unlocking a personalized nutrition plan that slashes chronic disease risk and fuels your goals with vibrant energy!",image:"assets/image/bodytype.webp",date:"2025-08-21",link:"bodytypeblog.html"}];function displayBlogs(e){const n=document.getElementById("blogGrid");n.innerHTML="",e.forEach((e,t)=>{var o=document.createElement("a");o.href=e.link,o.className="blog-card fade-in",o.style.animationDelay=.2*t+"s",o.innerHTML=`
-            <img src="${e.image}" alt="${e.title}" />
-            <div class="blog-content">
-              <h3>${e.title}</h3>
-              <p>${e.description}</p>
-              <button class="read-more">Read More</button>
-            </div>
-          `,n.appendChild(o)})}function sortBlogs(){const o=document.getElementById("sortSelect").value;displayBlogs([...blogs].sort((e,t)=>(e=new Date(e.date),t=new Date(t.date),"newest"===o?t-e:e-t)))}function toggleMenu(){document.getElementById("navLinks").classList.toggle("active")}window.addEventListener("DOMContentLoaded",()=>{displayBlogs(blogs)});
+     const blogs=[{title:"Eating Right for Your Body Shape: The Ultimate Nutrition Guide for Ecto, Meso & Endomorphs",description:"Struggling to lose fat or build muscle despite a healthy diet? Your body type—lean, athletic, or curvy—unlocks a nutrition plan to slash disease risk and fuel energy!",image:"assets/image/bodytype.webp",date:"2025-08-21",link:"bodytypeblog.html"},{title:"Plant-Based Strength: Mindful Eating & Fitness for Busy People",description:"Learn plant-based eating strategies and 20-30 minute strength workouts for busy lives. Boost energy, gut health, and resilience with home fitness.",image:"assets/image/plant-meal.webp",date:"2025-09-25",link:"plant-based-meal-blog.html"}];function displayBlogs(e){let t=document.getElementById("blogGrid");t.innerHTML="",e.forEach((e,a)=>{let n=document.createElement("a");n.href=e.link,n.className="blog-card fade-in",n.style.animationDelay=`${.2*a}s`,n.innerHTML=`
+      <img src="${e.image}" alt="${e.title}" />
+      <div class="blog-content">
+        <h3>${e.title}</h3>
+        <p>${e.description}</p>
+        <a href="${e.link}" class="read-more">Read More</a>
+      </div>
+    `,t.appendChild(n)})}function sortBlogs(){let e=document.getElementById("sortSelect").value,t=[...blogs].sort((t,a)=>"newest"===e?new Date(a.date)-new Date(t.date):new Date(t.date)-new Date(a.date));displayBlogs(t)}function toggleMenu(){document.getElementById("navLinks").classList.toggle("active")}window.addEventListener("DOMContentLoaded",()=>{displayBlogs(blogs)});
     </script>
   </body>
 </html>
+
 
 
