@@ -108,6 +108,23 @@
         }
       }
     </style>
+    <script>
+// IP Canonicalization Redirect for GitHub Pages
+(function() {
+  var currentHost = window.location.host;
+  var canonicalDomain = 'fitnessfreenow-dot.github.io';  // Replace with your exact domain if different
+  
+  // Check if accessed via IP or non-canonical host
+  if (currentHost !== canonicalDomain && !currentHost.includes('github.io')) {
+    // 301-like redirect (use meta refresh for better SEO simulation)
+    var link = document.createElement('a');
+    link.href = 'https://' + canonicalDomain + window.location.pathname + window.location.search;
+    if (link.protocol !== 'https:') link.protocol = 'https:';  // Force HTTPS if your site uses it
+    
+    window.location.replace(link.href);  // Instant redirect without history push
+  }
+})();
+</script>
   </head>
   <body>
     <!-- Schema.org Structured Data for SEO -->
@@ -263,6 +280,7 @@
     </script>
   </body>
 </html>
+
 
 
 
