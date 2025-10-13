@@ -1,13 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <title>About | Fitness Free - Free Fitness for Everyone</title>
+ <meta name="description" content="Learn about Fitness Free, your go-to for free fitness hacks, no-gym workouts, and tips for beginners to live healthier." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://fitnessfreenow.github.io/fitnessfree/about.html" />
+<!-- Open Graph for Social Media -->
+<meta property="og:title" content="About Fitness Free | Free Fitness for All" />
+<meta property="og:description" content="Discover Fitness Free’s mission to provide free fitness hacks, no-equipment workouts, and wellness tips for everyone." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://fitnessfreenow.github.io/fitnessfree/about.html" />
+<meta property="og:image" content="https://fitnessfreenow.github.io/fitnessfree/assets/image/logo.webp" />
+<meta property="og:locale" content="en_US" />
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="About Fitness Free | Free Fitness for All" />
+<meta name="twitter:description" content="Discover Fitness Free’s mission to provide free fitness hacks, no-equipment workouts, and wellness tips for everyone." />
+<meta name="twitter:image" content="https://fitnessfreenow.github.io/fitnessfree/assets/image/logo.webp" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About Fitness Free",
+  "description": "Fitness Free’s mission is to provide free fitness hacks, no-equipment workouts, and wellness tips for beginners and busy people.",
+  "url": "https://fitnessfreenow.github.io/fitnessfree/about.html",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fitness Free",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://fitnessfreenow.github.io/fitnessfree/assets/image/logo.webp"
+    },
+    "url": "https://fitnessfreenow.github.io/fitnessfree/"
+  },
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Fitness Free",
+    "description": "Fitness Free offers free fitness resources, including no-gym workouts, mental health tips, and practical hacks for a healthier lifestyle.",
+    "sameAs": [
+      "https://x.com/fitnessfree",
+      "https://www.instagram.com/fitnessfree",
+      "https://www.facebook.com/fitnessfree"
+    ]
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://fitnessfreenow.github.io/fitnessfree/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About",
+        "item": "https://fitnessfreenow.github.io/fitnessfree/about.html"
+      }
+    ]
+  }
+}
+</script>
     <style>
       *{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif}body{background:#f9f9f9;overflow-x:hidden}nav{position:sticky;top:0;z-index:999;background-color:#0077b6;display:flex;justify-content:space-between;align-items:center;padding:10px 20px;color:#fff;box-shadow:0 0 12px #00d4ff,0 0 24px #00d4ff;transition:box-shadow .3s ease}.logo{width:80px}.nav-right a{color:#fff;text-decoration:none;margin-left:15px;font-weight:500;text-shadow:0 0 8px #ffb703,0 0 14px #ffb703;font-size:.95rem}.hero{position:relative;height:80vh;width:100%;overflow:hidden}.slider{width:100%;height:100%;position:absolute}.slide{width:100%;height:100%;object-fit:cover;object-position:center;position:absolute;opacity:0;transition:opacity 1s ease-in-out}.slide.active{opacity:1}.overlay{position:relative;z-index:2;height:100%;background:rgba(0,0,0,.4);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem}.typing{font-size:2rem;font-weight:700;color:#fff}.btn{margin-top:1rem;padding:12px 24px;font-size:1rem;background:linear-gradient(45deg,#ffb703,#ffd60a);color:#000;border:3px solid transparent;border-radius:25px;cursor:pointer;transition:all .4s ease-in-out;box-shadow:0 0 10px #ffd60a,0 0 20px #ffb703;animation:glowBtn 2s ease-in-out infinite alternate}@keyframes glowBtn{from{box-shadow:0 0 10px #ffd60a}to{box-shadow:0 0 20px #ffd60a,0 0 30px #ffb703}}.glow-button{padding:1rem 2rem;background:linear-gradient(45deg,#fc0,#ffe066,#fa0);border:none;border-radius:50px;font-size:1rem;font-weight:700;color:#000;box-shadow:0 0 8px #fa0,0 0 15px #fa0,0 0 25px #fa0;cursor:pointer;transition:all .3s ease-in-out;animation:glowing 2s infinite}.glow-button:hover{transform:scale(1.07);background:#fff;color:#06c;box-shadow:0 0 10px #06c,0 0 20px #06c}@keyframes glowing{0%{box-shadow:0 0 5px #fa0}50%{box-shadow:0 0 20px #fa0,0 0 30px #fa0}100%{box-shadow:0 0 5px #fa0}}.about-section{padding:60px 20px;background:linear-gradient(120deg,#e0f7fa,#f9f9f9);text-align:center;opacity:0;transform:translateY(40px);transition:opacity 1s ease-out,transform 1s ease-out}.about-section.visible{opacity:1;transform:translateY(0)}.section-title{font-size:28px;color:#023e8a;margin-bottom:30px}.about-content{max-width:900px;margin:0 auto;font-size:1.05rem;line-height:1.9;color:#333}.about-content p{margin-bottom:1.2rem}.flip-card-section{padding:60px 20px;background:linear-gradient(120deg,#f9f9f9,#e0f7fa);text-align:center;opacity:0;transform:translateY(40px);transition:opacity 1s ease-out,transform 1s ease-out}.flip-card-section.visible{opacity:1;transform:translateY(0)}.card-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));justify-items:center}.flip-card{background-color:transparent;width:240px;height:260px;perspective:1000px;border-radius:12px;animation:flicker 3s ease-in-out infinite alternate}@keyframes flicker{0%{box-shadow:0 0 10px rgba(0,255,255,.4)}100%{box-shadow:0 0 20px rgba(0,255,255,.8)}}.flip-inner{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}.flip-card:hover .flip-inner{transform:rotateY(180deg)}.flip-back,.flip-front{position:absolute;width:100%;height:100%;backface-visibility:hidden;background-color:#fff;box-shadow:0 4px 12px rgba(0,0,0,.1);border-radius:10px;padding:20px;text-align:center}.flip-front{display:flex;flex-direction:column;justify-content:center;align-items:center}.flip-front h3{margin-top:10px;font-size:18px;color:#023e8a}.emoji{font-size:2rem;padding:15px;border-radius:50%;background:radial-gradient(circle,#90e0ef,#00b4d8);box-shadow:0 0 8px rgba(0,180,216,.8)}.date{font-size:.8rem;color:gray;margin-top:5px}.flip-back{transform:rotateY(180deg);display:flex;justify-content:center;align-items:center;font-size:.95rem}.cta-section{padding:40px 20px;text-align:center}@media (max-width:768px){.typing{font-size:1.4rem}.slide{object-position:top}.about-content{padding:0 1rem}}
     </style>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EC0Q82YZ1B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EC0Q82YZ1B');
+</script>
   </head>
   <body>
     <nav>
@@ -28,24 +93,14 @@
 
     <section class="hero">
       <div class="slider" id="carousel">
-        <img
-          class="slide active"
-          src="assets/image/home1.webp"
-          alt="Fitness Free Slide 1"
-        />
-        <img
-          class="slide"
-          src="assets/image/home2.webp"
-          alt="Fitness Free Slide 2"
-        />
-        <img
-          class="slide"
-          src="assets/image/home5.webp"
-          alt="Fitness Free Slide 3"
-        />
+<img src="assets/image/logo.webp" alt="Fitness Free Logo - Free Fitness Resources" class="logo" />
+<img class="slide active" src="assets/image/home1.webp" alt="Fitness Free workout tips for beginners" />
+<img class="slide" src="assets/image/home2.webp" alt="No-gym fitness hacks by Fitness Free" />
+<img class="slide" src="assets/image/home5.webp" alt="Healthy lifestyle tips from Fitness Free" />
       </div>
       <div class="overlay fade-in">
-        <h1><span class="typing" id="typingText"></span></h1>
+        <h1><span class="typing" id="typingText">About Fitness Free</span></h1>
+        <noscript><h1>About Fitness Free</h1></noscript>
         <p>Free Fitness for Everyone—Start Strong, Stay Fit!</p>
         <a href="blog.html">
           <button class="btn glow-button">Explore Fitness Journey</button>
@@ -168,4 +223,5 @@
     </script>
   </body>
 </html>
+
 
